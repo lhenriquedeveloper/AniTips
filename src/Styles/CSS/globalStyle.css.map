@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../scss/globalStyle.scss","../scss/colors.scss"],"names":[],"mappings":"AACA,KACE,gCACA,SACA,UACA,aACA,sBACA,aACA,WCRU","file":"globalStyle.css"}
+{"version":3,"sourceRoot":"","sources":["../SCSS/globalStyle.scss","../SCSS/colors.scss"],"names":[],"mappings":"AACA,KACE,gCACA,SACA,aACA,sBACA,aACA,WCPU,2CDQV,gBACA","file":"globalStyle.css"}

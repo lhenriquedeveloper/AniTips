@@ -1,17 +1,20 @@
 @use "./colors.scss" as colors;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 header {
   .navigationWrapper {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    padding: 8px 20px 8px 20px;
     background-color: colors.$backgroundcolor;
-    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.8);
     color: colors.$whitecolor;
     text-transform: uppercase;
     overflow: hidden;
-    width: 97.1%;
+    width: 100%;
+    min-height: 70px;
 
     .logoWrapper {
       display: flex;
@@ -39,10 +42,13 @@ header {
       }
 
       .parent {
-        padding: 0 10px;
+        padding: 0 30px;
         cursor: pointer;
 
         .link {
+          font-family: "Montserrat", sans-serif;
+          padding-top: 6px;
+          font-size: 16px;
           position: relative;
           display: flex;
           align-items: center;
@@ -74,6 +80,17 @@ header {
             transition: all 0.3s ease-in-out;
           }
         }
+      }
+      .log-button {
+        font-size: larger;
+        font-family: "Bebas Neue", cursive;
+        border: solid 1px colors.$backgroundcolor;
+        border-radius: 5px;
+        text-decoration: none;
+        cursor: pointer;
+        padding: 5px;
+        color: colors.$whitecolor;
+        background-color: colors.$secondcolor;
       }
     }
   }

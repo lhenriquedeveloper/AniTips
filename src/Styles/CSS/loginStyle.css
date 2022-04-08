@@ -1,1 +1,90 @@
-@import"https://fonts.googleapis.com/css2?family=Gruppo&display=swap";@import"https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap";h2{font-family:"Press Start 2P",cursive;padding-bottom:40px;font-weight:400;text-align:center;color:#fff}p{position:relative}#login-form-wrap{background-color:#222;width:35%;height:10%;margin:30px auto;text-align:center;padding-top:100px;border-radius:4px;box-shadow:0px 30px 50px 0px rgba(0,0,0,.8)}#login-form{padding:35px}input.login{padding:10px;box-sizing:border-box;width:100%;outline:none;height:60px;line-height:60px;border-radius:4px;margin:0;color:#8a8b8e;border:1.2px solid #c2c0ca;font-style:normal;font-size:16px;-webkit-appearance:none;-moz-appearance:none;appearance:none;position:relative;display:inline-block;background:none}input.login:focus{border-color:#ea4f4c}button.logbtn{border:none;font-family:"Gruppo",cursive;font-size:25px;font-weight:600;text-decoration:none;color:#222;width:100%;text-align:center;padding-top:10px;padding-bottom:10px;background-color:#fff;cursor:pointer;-webkit-transition:all .2s ease;transition:all .2s ease;position:relative;display:inline-block;cursor:pointer;text-align:center;transition:.8s}button.logbtn:hover{background-color:#ea4f4c}/*# sourceMappingURL=loginStyle.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Gruppo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+h2 {
+  font-family: "Press Start 2P", cursive;
+  padding-bottom: 20px;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+}
+
+p {
+  position: relative;
+}
+
+#login-form-wrap {
+  background-color: #222;
+  min-width: 450px;
+  max-width: 500px;
+  margin: 30px auto;
+  text-align: center;
+  padding-top: 100px;
+  border-radius: 4px;
+  box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.8);
+}
+
+#login-form {
+  padding: 5%;
+}
+
+input.login {
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  outline: none;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 4px;
+  margin: 0;
+  color: #8a8b8e;
+  border: 1.2px solid #c2c0ca;
+  font-style: normal;
+  font-size: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  display: inline-block;
+  background: none;
+}
+input.login:focus {
+  border-color: #ea4f4c;
+}
+
+button.logbtn {
+  border: none;
+  font-family: "Gruppo", cursive;
+  font-size: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #222;
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #fff;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.8s;
+}
+button.logbtn:hover {
+  background-color: #ea4f4c;
+}
+
+.register-link {
+  font-size: 15px;
+  font-style: italic;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.5s;
+}
+.register-link:hover {
+  color: #ea4f4c;
+}
+
+/*# sourceMappingURL=loginStyle.css.map */

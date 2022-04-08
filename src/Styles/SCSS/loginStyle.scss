@@ -4,7 +4,7 @@
 
 h2 {
   font-family: "Press Start 2P", cursive;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   font-weight: 400;
   text-align: center;
   color: colors.$whitecolor;
@@ -16,8 +16,8 @@ p {
 
 #login-form-wrap {
   background-color: colors.$backgroundcolor;
-  width: 35%;
-  height: 10%;
+  min-width: 450px;
+  max-width: 500px;
   margin: 30px auto;
   text-align: center;
   padding-top: 100px;
@@ -26,7 +26,7 @@ p {
 }
 
 #login-form {
-  padding: 35px;
+  padding: 5%;
 }
 
 input.login {
@@ -75,5 +75,16 @@ button.logbtn {
   transition: 0.8s;
   &:hover {
     background-color: colors.$maincolor;
+  }
+}
+
+.register-link {
+  font-size: 15px;
+  font-style: italic;
+  text-decoration: none;
+  color: colors.$whitecolor;
+  transition: 0.5s;
+  &:hover {
+    color: colors.$maincolor;
   }
 }

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import '../../Styles/CSS/headerStyle.css'
+import '../../Styles/css/headerStyle.css';
 
 export default function Header() {
     return (

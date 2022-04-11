@@ -1,6 +1,8 @@
 import api from "../../Services/api";
+import "../../Styles/css/homeStyle.css"
 import { useContext, useEffect } from 'react';
 import { AnimeContext } from '../../Contexts/animes';
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
 export default function Home() {
@@ -18,31 +20,26 @@ export default function Home() {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        // autoplay: true,
+        // autoplaySpeed: 5000,
     }
     return (
         <div className="container">
             <div className="lista-animes">
                 <Slider {...settingsSlick}>
-                    <div>
-                        <img></img>
-                    </div>
-                    <div>
-                        <h3>2</h3>
-                    </div>
-                    <div>
-                        <h3>3</h3>
-                    </div>
-                    <div>
-                        <h3>4</h3>
-                    </div>
-                    <div>
-                        <h3>5</h3>
-                    </div>
-                    <div>
-                        <h3>6</h3>
-                    </div>
+                    {animes.map((anime) => {
+                        return (
+                            <div className="slick-container">
+                                <article key={anime.anilist_id}>
+                                    <img src={anime.cover_image} alt={anime.titles.rj} />
+                                    <Link to={() => { }}>{anime.titles.rj}</Link>
+                                </article>
+                            </div>
+                        );
+                    })}
+
                 </Slider>
             </div>
         </div>

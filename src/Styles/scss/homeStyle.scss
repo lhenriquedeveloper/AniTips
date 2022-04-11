@@ -1,0 +1,49 @@
+@use "./colors.scss" as colors;
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+.container {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+  .lista-animes {
+    margin: 50px;
+    .slick-container {
+      article {
+        min-width: 300px;
+        margin-bottom: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      a {
+        font-family: "Poiret One", cursive;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        width: 240px;
+        height: 40px;
+        text-decoration: none;
+        color: colors.$whitecolor;
+        background-color: colors.$backgroundcolor;
+        font-size: 15px;
+        align-self: center;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 5px;
+        cursor: pointer;
+        transition: 1s;
+        &:hover {
+          color: colors.$whitecolor;
+          background-color: colors.$maincolor;
+        }
+      }
+      img {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        width: 250px;
+        height: 350px;
+      }
+    }
+  }
+}

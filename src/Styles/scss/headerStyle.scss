@@ -1,0 +1,97 @@
+@use "./colors.scss" as colors;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+header {
+  .navigationWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 20px 8px 20px;
+    background-color: colors.$backgroundcolor;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.8);
+    color: colors.$whitecolor;
+    text-transform: uppercase;
+    overflow: hidden;
+    width: 100%;
+    min-height: 70px;
+
+    .logoWrapper {
+      display: flex;
+
+      .stylish {
+        font-weight: bold;
+      }
+
+      .logo {
+        padding-left: 4px;
+        color: colors.$maincolor;
+      }
+    }
+
+    .navigation {
+      display: flex;
+      list-style-type: none;
+
+      li {
+        opacity: 1;
+        list-style-type: none;
+        color: colors.$whitecolor;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .parent {
+        padding: 0 30px;
+        cursor: pointer;
+
+        .link {
+          font-family: "Montserrat", sans-serif;
+          padding-top: 6px;
+          font-size: 16px;
+          position: relative;
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          transition: all 0.3s ease-in-out;
+          color: colors.$whitecolor;
+
+          &:hover {
+            color: colors.$maincolor;
+          }
+
+          .fa-minus {
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+            position: absolute;
+            left: -16px;
+            top: 3px;
+          }
+
+          .fa-plus {
+            opacity: 1;
+            transition: all 0.3s ease-in-out;
+          }
+
+          .fas {
+            color: colors.$maincolor;
+            margin: -2px 4px 0;
+            font-size: 10px;
+            transition: all 0.3s ease-in-out;
+          }
+        }
+      }
+      .log-button {
+        font-size: larger;
+        font-family: "Bebas Neue", cursive;
+        border: solid 1px colors.$backgroundcolor;
+        border-radius: 5px;
+        text-decoration: none;
+        cursor: pointer;
+        padding: 5px;
+        color: colors.$whitecolor;
+        background-color: colors.$secondcolor;
+      }
+    }
+  }
+}

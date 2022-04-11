@@ -1,15 +1,13 @@
 import firebase from "../../Services/firebaseconnection";
 import "../../Styles/css/loginStyle.css";
-import { useState } from "react";
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
+import { useContext } from 'react';
+import { UserContext } from '../../Contexts/user';
 
 export default function Register() {
     let navigate = useNavigate();
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [nickname, setNickname] = useState("");
-
+    const { nickname, setNickname, email, setEmail, password, setPassword } = useContext(UserContext);
     async function newUser() {
         await firebase
             .auth()

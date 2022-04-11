@@ -13,14 +13,13 @@ const NotFound = lazy(() => import('../Pages/NotFound'));
 
 
 export default function RoutesFile() {
-
     return (
         <div>
             <Suspense fallback={<h1 className="rendering-message">Rendering your page....</h1>}>
                 <Routes>
-                    <Route path="/" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/home" element={<Home />} />
+                    <Route exact path="/" element={<Login />} />
+                    <Route exact path="/register" element={<Register />} />
+                    <Route exact path="/home" element={<Home />} />
                     <Route path="/detail" element={<Detail />} />
                     <Route path="/saves" element={<Saves />} />
                     <Route path="*" element={<NotFound />} />

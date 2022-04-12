@@ -1,0 +1,62 @@
+@use "./colors.scss" as colors;
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: colors.$backgroundcolor;
+  height: auto;
+  width: 100vw;
+  padding-top: 25px;
+  color: colors.$whitecolor;
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    p {
+      font-style: italic;
+      max-width: 500px;
+      margin: 10px auto;
+      line-height: 28px;
+      font-size: 14px;
+      color: #cacdd2;
+    }
+    .logoWrapper {
+      .stylish {
+        font-weight: bold;
+      }
+      .logo {
+        padding-left: 4px;
+        color: colors.$maincolor;
+      }
+    }
+  }
+}
+.footer-bottom {
+  background: colors.$backgroundcolor;
+  width: 100vw;
+  padding: 20px;
+  padding-bottom: 40px;
+  text-align: center;
+  p {
+    float: left;
+    font-style: italic;
+    font-size: 15px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+    a {
+      font-family: "Bebas Neue", cursive;
+      color: colors.$whitecolor;
+      font-size: 16px;
+      text-decoration: none;
+      transition: 1s;
+      &:hover {
+        color: colors.$maincolor;
+      }
+    }
+  }
+}

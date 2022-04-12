@@ -1,6 +1,5 @@
 @use "./colors.scss" as colors;
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 header {
   .navigationWrapper {
     position: relative;
@@ -82,8 +81,7 @@ header {
         }
       }
       .log-button {
-        font-size: larger;
-        font-family: "Bebas Neue", cursive;
+        font-size: 15px;
         border: solid 1px colors.$backgroundcolor;
         border-radius: 5px;
         text-decoration: none;

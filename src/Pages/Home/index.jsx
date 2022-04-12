@@ -13,7 +13,7 @@ export default function Home() {
 
   useEffect(() => {
     async function loadAnimes() {
-      const response = await api.get("/v1/random/anime/10");
+      const response = await api.get("/v1/random/anime/10/false");
       setAnimes(response.data.data);
     }
     loadAnimes();

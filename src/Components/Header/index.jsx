@@ -2,16 +2,22 @@ import { Link } from "react-router-dom"
 import { useContext } from "react";
 import { UserContext } from "../../Contexts/user"
 import '../../Styles/css/headerStyle.css';
+import LogoutIcon from '@mui/icons-material/Logout';
+import SaveIcon from '@mui/icons-material/Save';
+import firebase from "../../Services/firebaseconnection";
 
 
+async function logout() {
+    await firebase.auth().signOut()
+}
 
 function LogButtons(props) {
     const isLoggedIn = props.isLoggedIn;
     if (isLoggedIn) {
         return (
             <ul className="navigation">
-                <li className="parent"><Link to="/saves" className="link" >Saves</Link></li>
-                <li className="parent"><button className="log-button">LOGOUT</button></li>
+                <li className="parent"><Link to="/saves" className="link" > <SaveIcon /> </Link></li>
+                <li className="parent"><Link onClick={logout} to="/" className="link"> <LogoutIcon /></Link></li>
             </ul>
         )
     }
@@ -22,7 +28,6 @@ function LogButtons(props) {
     }
 
 }
-
 export default function Header() {
     const { userLogged } = useContext(UserContext);
     return (

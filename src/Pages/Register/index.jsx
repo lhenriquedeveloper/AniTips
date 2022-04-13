@@ -13,7 +13,6 @@ export default function Register() {
             .auth()
             .createUserWithEmailAndPassword(email, password)
             .then(async (value) => {
-                setUserValue(value);
                 await firebase
                     .firestore()
                     .collection("users")
@@ -25,7 +24,6 @@ export default function Register() {
                     })
                     .then(() => {
                         setNickname("");
-                        setEmail("");
                         setEmail("");
                         setPassword("");
                         navigate("/");

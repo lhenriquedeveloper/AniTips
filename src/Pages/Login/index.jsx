@@ -3,9 +3,10 @@ import firebase from "../../Services/firebaseconnection";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../Contexts/user";
+import { toast } from "react-toastify";
 
 export default function Login() {
-  const { email, setEmail, password, setPassword } = useContext(UserContext);
+  const { email, setEmail, password, setPassword, } = useContext(UserContext);
   let navigate = useNavigate();
 
   async function doLogin() {
@@ -20,10 +21,31 @@ export default function Login() {
           .get()
           .then(() => {
             navigate("/home");
+            toast.success('Welcome', {
+              theme: "dark",
+              icon: "😁",
+              position: "top-center",
+              autoClose: 6000,
+              hideProgressBar: true,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: true,
+            })
+            setEmail("");
+            setPassword("");
+            ;
           });
       })
       .catch((error) => {
         console.log(error);
+        toast.error('Email or password invalid !', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
       });
   }
 

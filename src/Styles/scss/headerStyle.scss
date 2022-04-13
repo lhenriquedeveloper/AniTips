@@ -1,5 +1,4 @@
 @use "./colors.scss" as colors;
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap");
 header {
   .navigationWrapper {
     position: relative;
@@ -45,8 +44,8 @@ header {
         cursor: pointer;
 
         .link {
-          font-family: "Montserrat", sans-serif;
-          padding-top: 6px;
+          margin-right: 1rem;
+          padding-top: 10px;
           font-size: 16px;
           position: relative;
           display: flex;
@@ -79,16 +78,6 @@ header {
             transition: all 0.3s ease-in-out;
           }
         }
-      }
-      .log-button {
-        font-size: 15px;
-        border: solid 1px colors.$backgroundcolor;
-        border-radius: 5px;
-        text-decoration: none;
-        cursor: pointer;
-        padding: 5px;
-        color: colors.$whitecolor;
-        background-color: colors.$secondcolor;
       }
     }
   }

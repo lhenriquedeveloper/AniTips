@@ -48,9 +48,10 @@
     }
   }
   .refresh-button {
+    cursor: pointer;
     font-family: "Bebas Neue", cursive;
     font-style: italic;
-    margin-top: 1%;
+    margin-top: 2%;
     margin-left: 47%;
     display: flex;
     padding: 0.75rem 1.25rem;

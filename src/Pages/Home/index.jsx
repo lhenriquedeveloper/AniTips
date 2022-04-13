@@ -9,7 +9,7 @@ import Slider from "react-slick";
 
 export default function Home() {
   const { animes, setAnimes } = useContext(AnimeContext);
-  const { userLogged, setUserLogged } = useContext(UserContext);
+  const { setUserLogged } = useContext(UserContext);
 
   useEffect(() => {
     async function loadAnimes() {
@@ -46,8 +46,9 @@ export default function Home() {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000
+    autoplaySpeed: 3500
   };
+
   return (
     <div className="container">
       <div className="lista-animes">

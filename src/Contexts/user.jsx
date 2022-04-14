@@ -4,8 +4,8 @@ export const UserContext = createContext({});
 
 
 function UserProvider({ children }) {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("dev@dev.com.br");
+    const [password, setPassword] = useState("123456789");
     const [nickname, setNickname] = useState("");
     const [userLogged, setUserLogged] = useState();
 

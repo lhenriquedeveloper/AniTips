@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';
 import { UserContext } from '../../Contexts/user';
 
+
 export default function Register() {
     let navigate = useNavigate();
     const { nickname, setNickname, email, setEmail, password, setPassword } = useContext(UserContext);
@@ -32,23 +33,23 @@ export default function Register() {
             .catch((error) => {
                 if (error.code === "auth/weak-password") {
                     toast.error('Your password is too weak', {
+                        theme: "dark",
                         position: "top-right",
                         autoClose: 5000,
-                        hideProgressBar: false,
+                        hideProgressBar: true,
                         closeOnClick: true,
-                        pauseOnHover: true,
+                        pauseOnHover: false,
                         draggable: true,
-                        progress: undefined,
                     })
                 } else if (error.code === "auth/email-already-in-use")
                     toast.warn('Email already in use', {
+                        theme: "dark",
                         position: "top-right",
                         autoClose: 5000,
-                        hideProgressBar: false,
+                        hideProgressBar: true,
                         closeOnClick: true,
-                        pauseOnHover: true,
+                        pauseOnHover: false,
                         draggable: true,
-                        progress: undefined,
                     });
             })
     }

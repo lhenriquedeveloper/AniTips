@@ -21,16 +21,16 @@ export default function Login() {
           .get()
           .then(() => {
             navigate("/home");
-            toast.success('Welcome', {
-              theme: "dark",
-              icon: "😁",
-              position: "top-center",
-              autoClose: 6000,
-              hideProgressBar: true,
-              closeOnClick: true,
-              pauseOnHover: false,
-              draggable: true,
-            })
+            // toast.success('Welcome', {
+            //   theme: "dark",
+            //   icon: "😁",
+            //   position: "top-center",
+            //   autoClose: 6000,
+            //   hideProgressBar: true,
+            //   closeOnClick: true,
+            //   pauseOnHover: false,
+            //   draggable: true,
+            // })
             setEmail("");
             setPassword("");
             ;
@@ -38,17 +38,17 @@ export default function Login() {
       })
       .catch((error) => {
         console.log(error);
-        toast.error('Email or password invalid !', {
+        toast.error('Email or password invalid! ', {
+          theme: "dark",
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: true,
           closeOnClick: true,
-          pauseOnHover: true,
+          pauseOnHover: false,
           draggable: true,
         });
       });
   }
-
   return (
     <div>
       <div id="login-form-wrap">

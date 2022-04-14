@@ -22,21 +22,19 @@ export default function Home() {
   useEffect(() => {
     async function verifyLogin() {
       await firebase.auth()
-        .onAuthStateChanged(
-          function (user) {
-            if (user) {
-              //online
-              setUserLogged(true);
-            }
-            else {
-              //offline
-              setUserLogged(false);
-            }
+        .onAuthStateChanged((user) => {
+          if (user) {
+            //online
+            setUserLogged(true);
           }
-        )
+          else {
+            //offline
+            setUserLogged(false);
+          }
+        })
     }
     verifyLogin();
-  })
+  }, [])
 
 
   const settingsSlick = {
@@ -55,10 +53,10 @@ export default function Home() {
         <Slider {...settingsSlick}>
           {animes.map((anime) => {
             return (
-              <div className="slick-container">
-                <article key={anime.anilist_id}>
+              <div className="slick-container" key={anime.id}>
+                <article>
                   <img src={anime.cover_image} alt={anime.titles.rj} />
-                  <Link to={() => { }}>{anime.titles.rj}</Link>
+                  <Link to={`/detail/${anime.id}`}>{anime.titles.rj}</Link>
                 </article>
               </div>
             );

@@ -37,7 +37,7 @@ export default function RoutesFile() {
                     <Route exact path="/" element={<Login />} />
                     <Route exact path="/register" element={<Register />} />
                     <Route exact path="/home" element={<ProtectedRoute> <Home /> </ProtectedRoute>} />
-                    <Route path="/detail/:id" element={<ProtectedRoute> <Detail /> </ProtectedRoute>} />
+                    <Route path="/detail/:id" element={<Detail />} />
                     <Route path="/saves" element={<ProtectedRoute> <Saves /> </ProtectedRoute>} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>

@@ -1,0 +1,76 @@
+@use "./colors.scss" as colors;
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Padauk&display=swap");
+
+.anime-info {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+
+  .i-box {
+    display: flex;
+    justify-content: center;
+    img {
+      border: 2px solid colors.$backgroundcolor;
+      margin-right: 1rem;
+      width: 250px;
+      height: 350px;
+    }
+    iframe {
+      width: 700px;
+      height: 350px;
+      border: 2px solid colors.$backgroundcolor;
+    }
+  }
+
+  h1 {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-family: "Staatliches", cursive;
+    align-self: center;
+    font-style: italic;
+  }
+  h3 {
+    margin-left: 1rem;
+    padding-top: 1rem;
+    color: colors.$whitecolor;
+    font-style: italic;
+  }
+
+  span {
+    font-size: 20px;
+    font-family: "Bebas Neue", cursive;
+  }
+
+  p {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 18px;
+    color: colors.$whitecolor;
+    font-family: "Padauk", sans-serif;
+  }
+  button {
+    background-color: colors.$backgroundcolor;
+    color: colors.$whitecolor;
+    margin-right: 1rem;
+    cursor: pointer;
+    border: 0;
+    font-weight: bold;
+    font-size: 15px;
+    font-style: italic;
+    outline: none;
+    padding: 12px;
+    transition: all 1s;
+    a {
+      text-decoration: none;
+      color: colors.$whitecolor;
+    }
+    &:hover {
+      background-color: colors.$maincolor;
+    }
+  }
+  .botoes {
+    align-self: center;
+  }
+}

@@ -1,15 +1,18 @@
 import api from "../../Services/api";
 import "../../Styles/css/homeStyle.css";
 import firebase from "../../Services/firebaseconnection";
+import Slider from "react-slick";
 import { useContext, useEffect } from "react";
 import { AnimeContext } from "../../Contexts/animes";
 import { UserContext } from "../../Contexts/user";
-import { Link } from "react-router-dom";
-import Slider from "react-slick";
+import { useNavigate } from "react-router-dom";
+
+
 
 export default function Home() {
   const { animes, setAnimes } = useContext(AnimeContext);
   const { setUserLogged } = useContext(UserContext);
+  let navigate = useNavigate();
 
   useEffect(() => {
     async function loadAnimes() {
@@ -55,8 +58,9 @@ export default function Home() {
             return (
               <div className="slick-container" key={anime.id}>
                 <article>
-                  <img src={anime.cover_image} alt={anime.titles.rj} />
-                  <Link to={`/detail/${anime.id}`}>{anime.titles.rj}</Link>
+                  <img src={anime.cover_image} alt={anime.titles.rj} onClick={() => { navigate(`/detail/${anime.id}`) }} />
+                  <button onClick={() => { navigate(`/detail/${anime.id}`) }}>{anime.titles.rj}</button>
+
                 </article>
               </div>
             );

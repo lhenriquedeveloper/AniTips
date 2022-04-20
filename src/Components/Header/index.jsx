@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useContext } from "react";
 import { UserContext } from "../../Contexts/user"
 import '../../Styles/css/headerStyle.css';
@@ -30,10 +30,11 @@ function LogButtons(props) {
 }
 export default function Header() {
     const { userLogged } = useContext(UserContext);
+    let navigate = useNavigate();
     return (
         <header className="header">
             <nav className="navigationWrapper">
-                <div className="logoWrapper">
+                <div className="logoWrapper" onClick={() => { navigate("/home") }}>
                     <span className="stylish">Anime</span>
                     <span className="logo">Tips</span>
                 </div>

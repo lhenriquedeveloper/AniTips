@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom"
-import { lazy, Suspense, useContext } from "react"
+import { lazy, Suspense, useContext, useEffect } from "react"
 import { UserContext } from "../Contexts/user"
 import firebase from "../Services/firebaseconnection"
 import "../Styles/css/renderingStyle.css"
@@ -21,7 +21,10 @@ export default function RoutesFile() {
             return <Navigate to="/" replace />
         }
         else {
-            setUserLogged(true);
+            useEffect(() => {
+                setUserLogged(true);
+            }, [])
+
             return children;
         }
     }
@@ -37,7 +40,7 @@ export default function RoutesFile() {
                     <Route exact path="/" element={<Login />} />
                     <Route exact path="/register" element={<Register />} />
                     <Route exact path="/home" element={<ProtectedRoute> <Home /> </ProtectedRoute>} />
-                    <Route path="/detail/:id" element={<Detail />} />
+                    <Route path="/detail/:id" element={<ProtectedRoute> <Detail /> </ProtectedRoute>} />
                     <Route path="/saves" element={<ProtectedRoute> <Saves /> </ProtectedRoute>} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>

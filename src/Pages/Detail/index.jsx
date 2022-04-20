@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import api from "../../Services/api";
-import "../../Styles/css/animeDetail.css";
+import "../../Styles/css/animeDetailStyle.css";
 
 
 export default function Detail() {
@@ -10,6 +10,7 @@ export default function Detail() {
 
     const [uniqueAnime, setUniqueAnime] = useState([]);
     const [loading, setLoading] = useState(true);
+
 
 
     useEffect(() => {
@@ -41,17 +42,32 @@ export default function Detail() {
         );
     }
 
+    const VerifyAnime = () => {
+        if (!uniqueAnime.trailer_url) {
+            return (
+                <div className="i-box">
+                    <img src={uniqueAnime.cover_image} alt={uniqueAnime.titles.rj} />
+                </div>
+            )
+        }
+        else {
+            return (
+                <div className="i-box">
+                    <img src={uniqueAnime.cover_image} alt={uniqueAnime.titles.rj} />
+                    <iframe src={uniqueAnime.trailer_url} frameBorder="0"></iframe>
+                </div>
+            )
+        }
+    }
+
     return (
         <div>
 
             <div className="anime-info">
                 <h1>{uniqueAnime.titles.rj}</h1>
-                <div className="i-box">
-                    <img src={uniqueAnime.cover_image} alt={uniqueAnime.titles.rj} />
-                    <iframe src={uniqueAnime.trailer_url} frameBorder="0"></iframe>
-                </div>
+                <VerifyAnime />
                 <h3>Synopsis:</h3>
-                <p>{uniqueAnime.descriptions.en.toString()}</p>
+                <p>{uniqueAnime.descriptions.en}</p>
                 <p><span>Year:</span> {uniqueAnime.season_year}</p>
                 <p><span>Number of Episodes:</span> {uniqueAnime.episodes_count}</p>
                 <p><span>Genres:</span> {uniqueAnime.genres.toString()}</p>

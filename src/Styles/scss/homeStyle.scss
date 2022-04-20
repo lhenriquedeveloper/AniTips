@@ -17,24 +17,24 @@
         justify-content: center;
         align-items: center;
       }
-      a {
+      button {
+        border: none;
         font-family: "Poiret One", cursive;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
-        width: 240px;
-        height: 40px;
+        width: 250px;
+        height: 55px;
         text-decoration: none;
         color: colors.$whitecolor;
         background-color: colors.$backgroundcolor;
         font-size: 18px;
-        overflow: hidden;
-        text-overflow: ellipsis;
         align-self: center;
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 5px;
+        padding: 7px;
         cursor: pointer;
+        overflow: hidden;
         transition: 1s;
         &:hover {
           color: colors.$whitecolor;
@@ -42,10 +42,11 @@
         }
       }
       img {
+        cursor: pointer;
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
         width: 250px;
-        height: 350px;
+        height: 400px;
       }
     }
   }

@@ -59,7 +59,7 @@ export default function Home() {
               <div className="slick-container" key={anime.id}>
                 <article>
                   <img src={anime.cover_image} alt={anime.titles.rj} onClick={() => { navigate(`/detail/${anime.id}`) }} />
-                  <button onClick={() => { navigate(`/detail/${anime.id}`) }}>{anime.titles.rj}</button>
+                  <button onClick={() => { navigate(`/detail/${anime.id}`) }}><span class="buttontext">{anime.titles.rj}</span></button>
 
                 </article>
               </div>

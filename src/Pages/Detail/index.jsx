@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import api from "../../Services/api";
+import firebase from "../../Services/firebaseconnection";
 import "../../Styles/css/animeDetailStyle.css";
 
 
@@ -18,7 +19,7 @@ export default function Detail() {
             const response = await api.get(`v1/anime/${id}`);
 
             if (response.data.data.lenght === 0) {
-                <Navigate to="/home" replace />
+                <Navigate to="*" replace />
                 return;
             }
             else {
@@ -29,9 +30,6 @@ export default function Detail() {
         loadAnime();
     }, []);
 
-    useEffect(() => {
-        console.log(uniqueAnime)
-    }, [uniqueAnime])
 
 
     if (loading) {
@@ -60,20 +58,33 @@ export default function Detail() {
         }
     }
 
+    async function saveAnime() {
+        const user = firebase.auth().currentUser;
+        // await firebase.firestore()
+        //     .collection("favorites")
+        //     .doc(user.uid)
+        //     .collection("animes")
+        //     .doc(uniqueAnime.id)
+        //     .set({
+        //         animeName: uniqueAnime.titles.rj
+        //     })
+
+    }
+
+
     return (
         <div>
-
             <div className="anime-info">
                 <h1>{uniqueAnime.titles.rj}</h1>
                 <VerifyAnime />
                 <h3>Synopsis:</h3>
                 <p>{uniqueAnime.descriptions.en}</p>
-                <p><span>Year:</span> {uniqueAnime.season_year}</p>
-                <p><span>Number of Episodes:</span> {uniqueAnime.episodes_count}</p>
-                <p><span>Genres:</span> {uniqueAnime.genres.toString()}</p>
-                <p><span>Score:</span> {uniqueAnime.score}</p>
+                <span>Year: {uniqueAnime.season_year}</span>
+                <span>Number of Episodes: {uniqueAnime.episodes_count}</span>
+                <span>Genres: {uniqueAnime.genres.toString()}</span>
+                <span>Score: {uniqueAnime.score}/100</span>
                 <div className="botoes">
-                    <button onClick={() => { }}> Save Anime </button>
+                    <button onClick={saveAnime}> Save Anime </button>
                     <button>
                         <a
                             target="blank"

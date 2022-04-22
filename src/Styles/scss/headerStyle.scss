@@ -1,5 +1,7 @@
 @use "./colors.scss" as colors;
 header {
+  position: sticky;
+  top: 0;
   .navigationWrapper {
     position: relative;
     display: flex;

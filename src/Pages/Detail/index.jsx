@@ -60,15 +60,15 @@ export default function Detail() {
 
     async function saveAnime() {
         const user = firebase.auth().currentUser;
-        // await firebase.firestore()
-        //     .collection("favorites")
-        //     .doc(user.uid)
-        //     .collection("animes")
-        //     .doc(uniqueAnime.id)
-        //     .set({
-        //         animeName: uniqueAnime.titles.rj
-        //     })
 
+        await firebase.firestore()
+            .collection("favorites")
+            .doc(user.uid)
+            .collection("animes")
+            .doc(uniqueAnime.id.toString())
+            .set({
+                animeName: uniqueAnime.titles.rj
+            })
     }
 
 

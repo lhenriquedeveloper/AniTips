@@ -59,15 +59,15 @@ export default function Home() {
               <div className="slick-container" key={anime.id}>
                 <article>
                   <img src={anime.cover_image} alt={anime.titles.rj} onClick={() => { navigate(`/detail/${anime.id}`) }} />
-                  <button onClick={() => { navigate(`/detail/${anime.id}`) }}><span class="buttontext">{anime.titles.rj}</span></button>
+                  <button onClick={() => { navigate(`/detail/${anime.id}`) }}><span className="buttontext">{anime.titles.rj}</span></button>
 
                 </article>
               </div>
             );
           })}
         </Slider>
-      </div>
+      </div >
       <button className="refresh-button" onClick={() => { location.reload() }}>REFRESH</button>
-    </div>
+    </div >
   );
 }

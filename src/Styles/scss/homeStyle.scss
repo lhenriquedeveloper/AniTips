@@ -35,11 +35,16 @@
         padding: 7px;
         cursor: pointer;
         overflow: hidden;
+        text-overflow: ellipsis;
         transition: 1s;
         &:hover {
           color: colors.$whitecolor;
           background-color: colors.$maincolor;
         }
+      }
+      .buttontext {
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       img {
         cursor: pointer;
@@ -54,15 +59,14 @@
     cursor: pointer;
     font-family: "Bebas Neue", cursive;
     font-style: italic;
-    margin-top: 2%;
-    margin-left: 47%;
-    display: flex;
+    border: 3px solid colors.$secondcolor;
     padding: 0.75rem 1.25rem;
-    border: 3px solid colors.$backgroundcolor;
-    color: #fff;
-    font-size: 17px;
+    margin-top: 1%;
+    left: 46.8%;
+    font-size: 18px;
     letter-spacing: 0.15rem;
-    transition: all 0.3s;
+    color: colors.$whitecolor;
+    transition: all 0.5s;
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -73,7 +77,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: colors.$maincolor;
+      background-color: colors.$backgroundcolor;
       z-index: -2;
     }
     &:before {
@@ -84,7 +88,7 @@
       width: 0%;
       height: 100%;
       background-color: darken(colors.$maincolor, 10%);
-      transition: all 0.3s;
+      transition: all 0.5s;
       z-index: -1;
     }
     &:hover {

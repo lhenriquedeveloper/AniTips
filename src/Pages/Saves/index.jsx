@@ -1,21 +1,7 @@
-import { useEffect, useState } from "react"
-import firebase from "../../Services/firebaseconnection";
-
-const [animeSave, setAnimeSave] = useState([]);
-
-
-useEffect(() => {
-
-    async function listSave() {
-        const user = firebase.auth().currentUser
-
-        await firebase
-            .firestore()
-            .collection("favorites")
-    }
-
-})
-
+import firebase from "../../Services/firebaseconnection"
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from '@mui/icons-material/Edit';
+import { useEffect } from "react";
 
 export default function Saves() {
     return (

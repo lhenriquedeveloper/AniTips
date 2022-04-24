@@ -67,7 +67,8 @@ export default function Detail() {
             .collection("animes")
             .doc(uniqueAnime.id.toString())
             .set({
-                animeName: uniqueAnime.titles.rj
+                animeName: uniqueAnime.titles.rj,
+                idAnime: uniqueAnime.id
             })
     }
 

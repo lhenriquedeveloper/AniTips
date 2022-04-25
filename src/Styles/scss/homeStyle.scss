@@ -1,6 +1,7 @@
 @use "./colors.scss" as colors;
 @import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
 .container {
   width: 100%;
   align-items: center;
@@ -59,10 +60,10 @@
     cursor: pointer;
     font-family: "Bebas Neue", cursive;
     font-style: italic;
+    left: 46.3%;
     border: 3px solid colors.$secondcolor;
     padding: 0.75rem 1.25rem;
     margin-top: 1%;
-    left: 46.8%;
     font-size: 18px;
     letter-spacing: 0.15rem;
     color: colors.$whitecolor;

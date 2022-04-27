@@ -1,17 +1,20 @@
 import firebase from "../../Services/firebaseconnection"
-import { SentimentDissatisfied } from "@mui/icons-material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from '@mui/icons-material/Edit';
+import { SentimentDissatisfied } from "@mui/icons-material";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import "../../Styles/css/savesStyle.css";
 
 export default function Saves() {
+    // States  
     const [animeSave, setAnimeSave] = useState([]);
     const [userState, setUserState] = useState({});
     const [loading, setLoading] = useState(true);
+    let navigate = useNavigate();
 
-
+    // Verify Login Function
     useEffect(() => {
         async function verifyLogin() {
             await firebase.auth()
@@ -28,40 +31,40 @@ export default function Saves() {
                 })
         }
         verifyLogin();
-    }, [userState]);
-
-    const loadSaveAnime = async () => {
-        const response = firebase.firestore()
-            .collection("favorites")
-            .doc(userState.uid)
-            .collection("animes");
-        const data = await response.get();
-        data.docs.forEach(item => {
-            setAnimeSave([item.data()])
-        })
-    }
-
-    useEffect(() => {
-        loadSaveAnime();
     }, []);
 
-    if (loading) {
-        return (
-            <div className="anime-loading">
-                <h1>Loading your saved anime...</h1>
-            </div>
-        );
-    }
+    // List Function
+    useEffect(() => {
+        async function loadSaveAnime() {
+            await firebase.firestore()
+                .collection("favorites")
+                .doc(userState.uid)
+                .collection("animes")
+                .onSnapshot((doc) => {
+                    let myAnimes = [];
+                    doc.forEach((item) => {
+                        myAnimes.push({
+                            animeName: item.data().animeName,
+                            idAnime: item.data().idAnime,
+                        })
+                    })
+                    setAnimeSave(myAnimes);
+                }
+                )
+        }
+        loadSaveAnime();
+    }, [userState]);
 
+    // Delete Function
     async function handleDelete(id) {
-        const user = firebase.auth().currentUser;
         await firebase.firestore()
             .collection("favorites")
-            .doc(user.uid)
+            .doc(userState.uid)
             .collection("animes")
-            .doc(id)
+            .doc(id.toString())
+            .delete()
             .then(() => {
-                toast.sucess('Anime successfully deleted', {
+                toast.success('Anime successfully deleted', {
                     theme: "dark",
                     position: "top-right",
                     autoClose: 5000,
@@ -71,9 +74,21 @@ export default function Saves() {
                     draggable: true,
                 });
             })
+            .catch((e) => {
+                console.log(e);
+            })
     }
 
-    // Inicio do Return
+
+    // Loading Save Anime Verify
+    if (loading) {
+        return (
+            <div className="rendering-display">
+                <h1 className="rendering-message">Loading your saved anime...</h1>
+            </div>
+        );
+    }
+
     return (
         <div id="my-animes">
             <h1> My animes: </h1>
@@ -84,20 +99,23 @@ export default function Saves() {
                     <SentimentDissatisfied sx={{ fontSize: 20 }} />
                 </span>
             )}
-
             <ul>
                 {
-                    animeSave && animeSave.map((anime) => {
+                    animeSave.map((anime) => {
                         return (
                             <li key={anime.idAnime}>
                                 <span>{anime.animeName}</span>
-
                                 <div>
-                                    <Link to={`/detail/${anime.idAnime}`}> <EditIcon /> </Link>
+                                    <button>
+                                        <EditIcon
+                                            sx={{ fontSize: 27 }}
+                                            className="goto-icon"
+                                            onClick={() => { navigate(`/detail/${anime.idAnime}`) }}
+                                        />
+                                    </button>
                                     <button>
                                         <DeleteIcon
                                             sx={{ fontSize: 27 }}
-                                            color="primary"
                                             className="delete-icon"
                                             onClick={() => {
                                                 handleDelete(anime.idAnime);

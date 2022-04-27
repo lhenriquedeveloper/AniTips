@@ -79,10 +79,10 @@ export default function Detail() {
                 <h1>{uniqueAnime.titles.rj}</h1>
                 <VerifyAnime />
                 <h3>Synopsis:</h3>
-                <p>{uniqueAnime.descriptions.en}</p>
+                <p>{uniqueAnime.descriptions.en.toString().replace(/<br>/g, "")}</p>
                 <span>Year: {uniqueAnime.season_year}</span>
                 <span>Number of Episodes: {uniqueAnime.episodes_count}</span>
-                <span>Genres: {uniqueAnime.genres.toString()}</span>
+                <span>Genres: {uniqueAnime.genres.toString().replace(/,/g, ", ")}</span>
                 <span>Score: {uniqueAnime.score}/100</span>
                 <div className="botoes">
                     <button onClick={saveAnime}> Save Anime </button>

@@ -21,16 +21,15 @@ export default function Login() {
           .get()
           .then(() => {
             navigate("/home");
-            // toast.success('Welcome', {
-            //   theme: "dark",
-            //   icon: "😁",
-            //   position: "top-center",
-            //   autoClose: 6000,
-            //   hideProgressBar: true,
-            //   closeOnClick: true,
-            //   pauseOnHover: false,
-            //   draggable: true,
-            // })
+            toast.success('Welcome to AnimeTips', {
+              icon: "😁",
+              position: "top-center",
+              autoClose: 6000,
+              hideProgressBar: true,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: true,
+            })
             setEmail("");
             setPassword("");
             ;

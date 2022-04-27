@@ -1,0 +1,61 @@
+@use "./colors.scss" as colors;
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gruppo&display=swap");
+
+#my-animes {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-style: italic;
+    font-weight: 400;
+    font-family: "Gruppo", cursive;
+    color: colors.$whitecolor;
+    text-transform: uppercase;
+    font-size: 45px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  span.nothing {
+    font-family: "PT Sans", sans-serif;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  ul {
+    margin-top: 1rem;
+    padding: 0;
+    li {
+      padding: 0;
+      list-style: none;
+      min-width: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      div button {
+        border: none;
+        padding: 5px;
+        border-radius: 8px;
+        margin-right: 10px;
+        background-color: colors.$backgroundcolor;
+        color: colors.$whitecolor;
+        cursor: pointer;
+        transition: all 0.7s;
+        &:hover {
+          color: red;
+        }
+      }
+    }
+    span {
+      font-style: italic;
+      font-family: "Staatliches", cursive;
+      font-size: 23px;
+    }
+  }
+}

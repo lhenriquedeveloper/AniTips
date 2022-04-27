@@ -1,5 +1,4 @@
 import firebase from "../../Services/firebaseconnection";
-import "../../Styles/css/loginStyle.css";
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';

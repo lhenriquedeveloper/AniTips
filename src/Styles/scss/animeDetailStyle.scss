@@ -37,7 +37,7 @@
 
   h1 {
     padding-top: 2px;
-    padding-bottom: 2px;
+    padding-bottom: 1rem;
     font-family: "Staatliches", cursive;
     align-self: center;
     font-style: italic;
@@ -45,14 +45,14 @@
   h3 {
     align-self: center;
     margin-left: 1rem;
-    padding-top: 1rem;
+    padding-top: 2rem;
     color: colors.$whitecolor;
     font-style: italic;
   }
 
   span {
+    margin-left: 1rem;
     padding: 5px;
-    text-indent: 1rem;
     font-size: 20px;
     font-family: "Bebas Neue", cursive;
     color: colors.$whitecolor;
@@ -61,13 +61,13 @@
   p {
     padding: 1px;
     text-align: justify;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin: 1rem;
     font-size: 18px;
     color: colors.$whitecolor;
     font-family: "Hind", sans-serif;
   }
   button {
+    margin-top: 1rem;
     background-color: colors.$backgroundcolor;
     color: colors.$whitecolor;
     margin-right: 1rem;

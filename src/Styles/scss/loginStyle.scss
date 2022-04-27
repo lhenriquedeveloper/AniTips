@@ -17,9 +17,12 @@ p {
 #login-form-wrap {
   background-color: colors.$backgroundcolor;
   min-width: 450px;
-  max-width: 500px;
-  margin: 30px auto;
+  max-width: 600px;
+  min-height: 450px;
+  margin: 50px auto;
   text-align: center;
+  justify-content: center;
+  align-self: center;
   padding-top: 100px;
   border-radius: 4px;
   box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.8);
@@ -37,7 +40,7 @@ input.login {
   height: 60px;
   line-height: 60px;
   border-radius: 4px;
-  margin: 0;
+  margin: 5px;
   color: #8a8b8e;
   border: 1.2px solid #c2c0ca;
   font-style: normal;
@@ -54,6 +57,7 @@ input.login {
 }
 
 button.logbtn {
+  margin-top: 10px;
   border: none;
   font-family: "Gruppo", cursive;
   font-size: 25px;

@@ -5,23 +5,14 @@ import Slider from "react-slick";
 import { useContext, useEffect } from "react";
 import { AnimeContext } from "../../Contexts/animes";
 import { UserContext } from "../../Contexts/user";
-import { useNavigate } from "react-router-dom";
-
-
+import { Link } from "react-router-dom";
 
 export default function Home() {
+  //Contexts
   const { animes, setAnimes } = useContext(AnimeContext);
   const { setUserLogged } = useContext(UserContext);
-  let navigate = useNavigate();
 
-  useEffect(() => {
-    async function loadAnimes() {
-      const response = await api.get("/v1/random/anime/10/false");
-      setAnimes(response.data.data);
-    }
-    loadAnimes();
-  }, []);
-
+  //Verify Login Functions
   useEffect(() => {
     async function verifyLogin() {
       await firebase.auth()
@@ -39,7 +30,16 @@ export default function Home() {
     verifyLogin();
   }, [])
 
+  // Load Animes Function
+  useEffect(() => {
+    async function loadAnimes() {
+      const response = await api.get("/v1/random/anime/10/false");
+      setAnimes(response.data.data);
+    }
+    loadAnimes();
+  }, []);
 
+  //Slick Config
   const settingsSlick = {
     dots: true,
     infinite: true,
@@ -59,15 +59,16 @@ export default function Home() {
               <div className="slick-container" key={anime.id}>
                 <article>
                   <img src={anime.cover_image} alt={anime.titles.rj} onClick={() => { navigate(`/detail/${anime.id}`) }} />
-                  <button onClick={() => { navigate(`/detail/${anime.id}`) }}><span className="buttontext">{anime.titles.rj}</span></button>
-
+                  <Link to={`/detail/${anime.id}`}>{anime.titles.rj}</Link>
                 </article>
               </div>
             );
           })}
         </Slider>
       </div >
-      <button className="refresh-button" onClick={() => { location.reload() }}>REFRESH</button>
+      <div className="button-area">
+        <button className="refresh-button" onClick={() => { location.reload() }}>REFRESH</button>
+      </div>
     </div >
   );
 }

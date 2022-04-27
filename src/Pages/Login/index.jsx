@@ -6,9 +6,11 @@ import { UserContext } from "../../Contexts/user";
 import { toast } from "react-toastify";
 
 export default function Login() {
+  //Contexts, States e Hooks
   const { email, setEmail, password, setPassword, } = useContext(UserContext);
   let navigate = useNavigate();
 
+  //Do Login Function
   async function doLogin() {
     await firebase
       .auth()
@@ -21,11 +23,11 @@ export default function Login() {
           .get()
           .then(() => {
             navigate("/home");
-            toast.success('Welcome to AnimeTips', {
-              icon: "😁",
+            toast(' Welcome to AnimeTips 😁', {
+              theme: "dark",
               position: "top-center",
               autoClose: 6000,
-              hideProgressBar: true,
+              hideProgressBar: false,
               closeOnClick: true,
               pauseOnHover: false,
               draggable: true,
@@ -48,8 +50,9 @@ export default function Login() {
         });
       });
   }
+
   return (
-    <div>
+    <div className="content-login-area">
       <div id="login-form-wrap">
         <h2>SIGN IN:</h2>
         <div id="login-form">
@@ -65,7 +68,7 @@ export default function Login() {
               type="email"
               id="email"
               name="email"
-              placeholder="Email"
+              placeholder="email@email.com"
             />
           </p>
           <p>
@@ -80,7 +83,7 @@ export default function Login() {
               type="password"
               id="password"
               name="password"
-              placeholder="Password"
+              placeholder="********"
             />
           </p>
           <p>

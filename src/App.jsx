@@ -3,6 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 import RoutesFile from "./Routes/routes";
 import { ToastContainer } from "react-toastify";
 import UserProvider from "./Contexts/user";
@@ -16,6 +17,7 @@ export default function App() {
           <Header />
           <ToastContainer />
           <RoutesFile />
+          <Footer />
         </UserProvider>
       </AnimeProvider>
     </div>

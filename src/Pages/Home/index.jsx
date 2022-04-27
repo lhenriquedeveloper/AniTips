@@ -2,15 +2,19 @@ import api from "../../Services/api";
 import "../../Styles/css/homeStyle.css";
 import firebase from "../../Services/firebaseconnection";
 import Slider from "react-slick";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AnimeContext } from "../../Contexts/animes";
 import { UserContext } from "../../Contexts/user";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Home() {
   //Contexts
   const { animes, setAnimes } = useContext(AnimeContext);
   const { setUserLogged } = useContext(UserContext);
+  const [screenSize, setScreenSize] = useState();
+  const [slickConfig, setSlickConfig] = useState();
+  let navigate = useNavigate();
+
 
   //Verify Login Functions
   useEffect(() => {
@@ -39,21 +43,50 @@ export default function Home() {
     loadAnimes();
   }, []);
 
-  //Slick Config
-  const settingsSlick = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3500
-  };
+
+  // Responsive Function
+  useEffect(() => {
+    function sizeOfThings() {
+      setScreenSize(screen.width);
+    };
+
+    sizeOfThings();
+
+    if (screenSize < 800) {
+      const settingsSlick = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3500
+      }
+      setSlickConfig(settingsSlick);
+    }
+    else {
+      const settingsSlick = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3500
+      }
+      setSlickConfig(settingsSlick);
+    }
+
+  }, [screenSize])
+
+
+
+
 
   return (
     <div className="container">
       <div className="lista-animes">
-        <Slider {...settingsSlick}>
+        <Slider {...slickConfig}>
           {animes.map((anime) => {
             return (
               <div className="slick-container" key={anime.id}>

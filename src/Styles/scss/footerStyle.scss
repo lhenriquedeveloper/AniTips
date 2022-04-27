@@ -1,0 +1,30 @@
+@use "./colors.scss" as colors;
+footer {
+  .navigationWrapper-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: colors.$backgroundcolor;
+    color: colors.$whitecolor;
+    padding: 10px;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    position: fixed;
+    width: 100%;
+    .logoWrapper-footer {
+      .stylish-footer {
+        font-style: italic;
+        a {
+          color: colors.$whitecolor;
+          font-size: 16px;
+          text-decoration: none;
+          transition: all 0.7s ease-in-out;
+          &:hover {
+            color: colors.$maincolor;
+          }
+        }
+      }
+    }
+  }
+}

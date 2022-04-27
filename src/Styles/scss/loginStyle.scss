@@ -2,93 +2,95 @@
 @import url("https://fonts.googleapis.com/css2?family=Gruppo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
-h2 {
-  font-family: "Press Start 2P", cursive;
-  padding-bottom: 20px;
-  font-weight: 400;
-  text-align: center;
-  color: colors.$whitecolor;
-}
-
-p {
-  position: relative;
-}
-
-#login-form-wrap {
-  background-color: colors.$backgroundcolor;
-  min-width: 450px;
-  max-width: 600px;
-  min-height: 450px;
-  margin: 50px auto;
-  text-align: center;
-  justify-content: center;
-  align-self: center;
-  padding-top: 100px;
-  border-radius: 4px;
-  box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.8);
-}
-
-#login-form {
-  padding: 5%;
-}
-
-input.login {
-  padding: 10px;
-  box-sizing: border-box;
-  width: 100%;
-  outline: none;
-  height: 60px;
-  line-height: 60px;
-  border-radius: 4px;
-  margin: 5px;
-  color: #8a8b8e;
-  border: 1.2px solid #c2c0ca;
-  font-style: normal;
-  font-size: 16px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  position: relative;
-  display: inline-block;
-  background: none;
-  &:focus {
-    border-color: colors.$maincolor;
+.content-login-area {
+  margin-top: 150px;
+  #login-form-wrap {
+    h2 {
+      font-family: "Press Start 2P", cursive;
+      padding-bottom: 20px;
+      font-weight: 400;
+      text-align: center;
+      color: colors.$whitecolor;
+    }
+    background-color: colors.$backgroundcolor;
+    min-width: 450px;
+    max-width: 600px;
+    min-height: 400px;
+    margin: 50px auto;
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+    padding-top: 100px;
+    border-radius: 4px;
+    box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.8);
   }
-}
 
-button.logbtn {
-  margin-top: 10px;
-  border: none;
-  font-family: "Gruppo", cursive;
-  font-size: 25px;
-  font-weight: 600;
-  text-decoration: none;
-  color: colors.$backgroundcolor;
-  width: 100%;
-  text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: colors.$whitecolor;
-  cursor: pointer;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  text-align: center;
-  transition: 0.8s;
-  &:hover {
-    background-color: colors.$maincolor;
+  #login-form {
+    padding: 5%;
+    p {
+      position: relative;
+    }
   }
-}
 
-.register-link {
-  font-size: 15px;
-  font-style: italic;
-  text-decoration: none;
-  color: colors.$whitecolor;
-  transition: 0.5s;
-  &:hover {
-    color: colors.$maincolor;
+  input.login {
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    outline: none;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 4px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: #8a8b8e;
+    border: 1.2px solid #c2c0ca;
+    font-style: normal;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    display: inline-block;
+    background: none;
+    &:focus {
+      border-color: colors.$maincolor;
+    }
+  }
+
+  button.logbtn {
+    margin-top: 20px;
+    border: none;
+    font-family: "Gruppo", cursive;
+    font-size: 25px;
+    font-weight: 600;
+    font-style: italic;
+    text-decoration: none;
+    color: colors.$backgroundcolor;
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: colors.$whitecolor;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.8s;
+    &:hover {
+      background-color: colors.$maincolor;
+    }
+  }
+  .register-link {
+    font-size: 18px;
+    font-style: italic;
+    text-decoration: none;
+    color: colors.$whitecolor;
+    transition: 0.5s;
+    &:hover {
+      color: colors.$maincolor;
+    }
   }
 }

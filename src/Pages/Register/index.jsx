@@ -6,8 +6,11 @@ import { UserContext } from '../../Contexts/user';
 
 
 export default function Register() {
+    //Contexts, States and Hooks
     let navigate = useNavigate();
     const { nickname, setNickname, email, setEmail, password, setPassword } = useContext(UserContext);
+
+    // New User Create Function
     async function newUser() {
         await firebase
             .auth()
@@ -41,7 +44,7 @@ export default function Register() {
                         draggable: true,
                     })
                 } else if (error.code === "auth/email-already-in-use")
-                    toast.warn('Email already in use', {
+                    toast.error('Email already in use', {
                         theme: "dark",
                         position: "top-right",
                         autoClose: 5000,
@@ -55,18 +58,18 @@ export default function Register() {
 
     return (
         <div>
-            <div>
+            <div className="content-login-area">
                 <div id="login-form-wrap">
                     <h2>SIGN UP:</h2>
                     <div id="login-form">
                         <p>
-                            <input onChange={(e) => { setNickname(e.target.value) }} value={nickname} required autoComplete="off" className="login" type="nickname" id="nickname" name="nickname" placeholder="Nickname" />
+                            <input onChange={(e) => { setNickname(e.target.value) }} value={nickname} required autoComplete="off" className="login" type="nickname" id="nickname" name="nickname" placeholder="Type your nickname here" />
                         </p>
                         <p>
-                            <input onChange={(e) => { setEmail(e.target.value) }} value={email} required autoComplete="off" className="login" type="email" id="email" name="email" placeholder="Email" />
+                            <input onChange={(e) => { setEmail(e.target.value) }} value={email} required autoComplete="off" className="login" type="email" id="email" name="email" placeholder="email@email.com" />
                         </p>
                         <p>
-                            <input onChange={(e) => { setPassword(e.target.value) }} value={password} required autoComplete="off" className="login" type="password" id="password" name="password" placeholder="Senha" />
+                            <input onChange={(e) => { setPassword(e.target.value) }} value={password} required autoComplete="off" className="login" type="password" id="password" name="password" placeholder="********" />
                         </p>
                         <p>
                             <button onClick={newUser} className="logbtn">Register</button>

@@ -36,10 +36,10 @@
         width: 250px;
         height: 40px;
         padding: 7px;
-        transition: 0.7s;
+        transition: 0.8s;
         &:hover {
           background-color: #cc1d00;
-          overflow: visible;
+          height: 55px;
         }
       }
       img {

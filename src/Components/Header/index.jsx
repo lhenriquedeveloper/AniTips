@@ -6,11 +6,11 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import SaveIcon from '@mui/icons-material/Save';
 import firebase from "../../Services/firebaseconnection";
 
-
+// Login Function
 async function logout() {
     await firebase.auth().signOut()
 }
-
+// Condicional Rendering Buttons Function
 function LogButtons(props) {
     const isLoggedIn = props.isLoggedIn;
     if (isLoggedIn) {

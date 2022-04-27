@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import api from "../../Services/api";
 import firebase from "../../Services/firebaseconnection";
 import "../../Styles/css/animeDetailStyle.css";
 
 
 export default function Detail() {
+    //Contexts, States and Hooks
     const { id } = useParams();
-
-
     const [uniqueAnime, setUniqueAnime] = useState([]);
     const [loading, setLoading] = useState(true);
 
 
-
+    //Load Anime Function
     useEffect(() => {
         async function loadAnime() {
             const response = await api.get(`v1/anime/${id}`);
@@ -31,7 +31,7 @@ export default function Detail() {
     }, []);
 
 
-
+    //Rendering anime verification
     if (loading) {
         return (
             <div className="anime-loading">
@@ -39,7 +39,7 @@ export default function Detail() {
             </div>
         );
     }
-
+    // Have Trailer? Function
     const VerifyAnime = () => {
         if (!uniqueAnime.trailer_url) {
             return (
@@ -57,7 +57,7 @@ export default function Detail() {
             )
         }
     }
-
+    //  Save Anime Function
     async function saveAnime() {
         const user = firebase.auth().currentUser;
 
@@ -69,6 +69,17 @@ export default function Detail() {
             .set({
                 animeName: uniqueAnime.titles.rj,
                 idAnime: uniqueAnime.id
+            })
+            .then(() => {
+                toast.success('Anime successfully saved', {
+                    theme: "dark",
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                });
             })
     }
 

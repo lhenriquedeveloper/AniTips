@@ -2,7 +2,6 @@ import { useState, createContext } from "react";
 
 export const UserContext = createContext({});
 
-
 function UserProvider({ children }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

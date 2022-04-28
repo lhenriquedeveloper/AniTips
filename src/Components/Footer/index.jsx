@@ -7,7 +7,7 @@ export default function Footer() {
         <footer className="footer">
             <nav className="navigationWrapper-footer">
                 <div className="logoWrapper-footer">
-                    <span className="stylish-footer">Made by <Link to="https://github.com/lhenriquedeveloper/AniTips">@LhenriqueDeveloper <GitHubIcon></GitHubIcon></Link></span>
+                    <span className="stylish-footer">Made by <a href="https://github.com/lhenriquedeveloper/AniTips">@LhenriqueDeveloper <GitHubIcon></GitHubIcon></a></span>
                 </div>
             </nav>
         </footer>

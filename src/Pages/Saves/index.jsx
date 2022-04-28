@@ -99,7 +99,7 @@ export default function Saves() {
                     <SentimentDissatisfied sx={{ fontSize: 20 }} />
                 </span>
             )}
-            <ul>
+            <ul className="animelist">
                 {
                     animeSave.map((anime) => {
                         return (

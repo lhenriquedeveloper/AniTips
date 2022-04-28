@@ -39,9 +39,10 @@ export default function Detail() {
             </div>
         );
     }
-    // Have Trailer? Function
+
+    // Have Trailer? and Responsive Function
     const VerifyAnime = () => {
-        if (!uniqueAnime.trailer_url) {
+        if (!uniqueAnime.trailer_url || screen.width < 800) {
             return (
                 <div className="i-box">
                     <img src={uniqueAnime.cover_image} alt={uniqueAnime.titles.rj} />
@@ -57,6 +58,8 @@ export default function Detail() {
             )
         }
     }
+
+
     //  Save Anime Function
     async function saveAnime() {
         const user = firebase.auth().currentUser;

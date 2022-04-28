@@ -1,3 +1,4 @@
+import Footer from "../../Components/Footer";
 import "../../Styles/css/loginStyle.css";
 import firebase from "../../Services/firebaseconnection";
 import { Link, useNavigate } from "react-router-dom";
@@ -98,6 +99,7 @@ export default function Login() {
           </p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

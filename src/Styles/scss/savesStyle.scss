@@ -27,7 +27,7 @@
     font-weight: 500;
   }
 
-  ul {
+  ul.animelist {
     margin-top: 1rem;
     padding: 0;
     li {
@@ -57,5 +57,12 @@
       font-family: "Staatliches", cursive;
       font-size: 23px;
     }
+  }
+}
+
+@media (max-width: 800px) {
+  ul.animelist {
+    width: 300px;
+    margin-right: 5rem;
   }
 }

@@ -16,7 +16,7 @@ export default function Detail() {
     //Load Anime Function
     useEffect(() => {
         async function loadAnime() {
-            const response = await api.get(`v1/anime/${id}`);
+            const response = await api.get(`/anime/${id}`);
 
             if (response.data.data.lenght === 0) {
                 <Navigate to="*" replace />
@@ -42,18 +42,18 @@ export default function Detail() {
 
     // Have Trailer? and Responsive Function
     const VerifyAnime = () => {
-        if (!uniqueAnime.trailer_url || screen.width < 800) {
+        if (!uniqueAnime.trailer.embed_url || screen.width < 800) {
             return (
                 <div className="i-box">
-                    <img src={uniqueAnime.cover_image} alt={uniqueAnime.titles.rj} />
+                    <img src={uniqueAnime.images.jpg.image_url} alt={uniqueAnime.title} />
                 </div>
             )
         }
         else {
             return (
                 <div className="i-box">
-                    <img src={uniqueAnime.cover_image} alt={uniqueAnime.titles.rj} />
-                    <iframe src={uniqueAnime.trailer_url} frameBorder="0"></iframe>
+                    <img src={uniqueAnime.images.jpg.image_url} alt={uniqueAnime.title} />
+                    <iframe src={uniqueAnime.trailer.embed_url} frameBorder="0"></iframe>
                 </div>
             )
         }
@@ -68,10 +68,10 @@ export default function Detail() {
             .collection("favorites")
             .doc(user.uid)
             .collection("animes")
-            .doc(uniqueAnime.id.toString())
+            .doc(uniqueAnime.mal_id.toString())
             .set({
-                animeName: uniqueAnime.titles.rj,
-                idAnime: uniqueAnime.id
+                animeName: uniqueAnime.title,
+                idAnime: uniqueAnime.mal_id
             })
             .then(() => {
                 toast.success('Anime successfully saved', {
@@ -90,20 +90,20 @@ export default function Detail() {
     return (
         <div>
             <div className="anime-info">
-                <h1>{uniqueAnime.titles.rj}</h1>
+                <h1>{uniqueAnime.title}</h1>
                 <VerifyAnime />
                 <h3>Synopsis:</h3>
-                <p>{uniqueAnime.descriptions.en.toString().replace(/<br>/g, "")}</p>
-                <span>Year: {uniqueAnime.season_year}</span>
-                <span>Number of Episodes: {uniqueAnime.episodes_count}</span>
-                <span>Genres: {uniqueAnime.genres.toString().replace(/,/g, ", ")}</span>
-                <span>Score: {uniqueAnime.score}/100</span>
+                <p>{uniqueAnime.synopsis}</p>
+                <span>Aired In: {uniqueAnime.aired.string}</span>
+                <span>Number of Episodes: {uniqueAnime.episodes}</span>
+                <span>Genres: {uniqueAnime.genres.name}</span>
+                <span>Score: {uniqueAnime.score}/10</span>
                 <div className="botoes">
                     <button onClick={saveAnime}> Save Anime </button>
                     <button>
                         <a
                             target="blank"
-                            href={`https://www.youtube.com/results?search_query= ${uniqueAnime.titles.rj} Trailer`}
+                            href={`https://www.youtube.com/results?search_query= ${uniqueAnime.title} Trailer`}
                         >
                             Search Trailer on Youtube
                         </a>

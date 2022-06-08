@@ -37,7 +37,7 @@ export default function Home() {
   // Load Animes Function
   useEffect(() => {
     async function loadAnimes() {
-      const response = await api.get("/v1/random/anime/10/false");
+      const response = await api.get("/anime?limit=10");
       setAnimes(response.data.data);
     }
     loadAnimes();
@@ -89,10 +89,10 @@ export default function Home() {
         <Slider {...slickConfig}>
           {animes.map((anime) => {
             return (
-              <div className="slick-container" key={anime.id}>
+              <div className="slick-container" key={anime.mal_id}>
                 <article>
-                  <img src={anime.cover_image} alt={anime.titles.rj} onClick={() => { navigate(`/detail/${anime.id}`) }} />
-                  <Link to={`/detail/${anime.id}`}>{anime.titles.rj}</Link>
+                  <img src={anime.images.jpg.image_url} alt={anime.title} onClick={() => { navigate(`/detail/${anime.mal_id}`) }} />
+                  <Link to={`/detail/${anime.mal_id}`}>{anime.title}</Link>
                 </article>
               </div>
             );

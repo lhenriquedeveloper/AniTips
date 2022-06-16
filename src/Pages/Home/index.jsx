@@ -37,8 +37,11 @@ export default function Home() {
   // Load Animes Function
   useEffect(() => {
     async function loadAnimes() {
-      const response = await api.get("/anime?limit=10");
-      setAnimes(response.data.data);
+      const animes = await Promise.all(Array.from({length: 10}, (v, i) => i).map(async () => {
+        const {data} = await api.get("/random/anime")
+        return data.data
+      }))
+      setAnimes(animes);
     }
     loadAnimes();
   }, []);

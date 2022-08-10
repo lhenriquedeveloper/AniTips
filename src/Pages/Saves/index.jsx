@@ -5,7 +5,7 @@ import { SentimentDissatisfied } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import "../../Styles/css/savesStyle.css";
+import "../../Styles/scss/savesStyle.scss";
 
 export default function Saves() {
     // States  

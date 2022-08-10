@@ -1,4 +1,4 @@
-import "./Styles/css/globalStyle.css";
+import "./Styles/scss/globalStyle.scss";
 import 'react-toastify/dist/ReactToastify.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

@@ -3,13 +3,13 @@ import "firebase/auth";
 import "firebase/firestore";
 
 let firebaseConfig = {
-    apiKey: "AIzaSyDCC5oRJQolcDN3jsNbMdH6AMCm1zM8fBw",
-    authDomain: "anitips-64ef2.firebaseapp.com",
-    projectId: "anitips-64ef2",
-    storageBucket: "anitips-64ef2.appspot.com",
-    messagingSenderId: "978423693316",
-    appId: "1:978423693316:web:c4a80ff6a6e5cda9f23551",
-    measurementId: "G-XCVJHEC5QR"
+    apiKey: import.meta.env.VITE_API_KEY,
+    authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_MESSAGING_APP_ID,
+    measurementId: import.meta.env.VITE_MEASUREMENT_ID
 };
 // Initialize Firebase
 if (!firebase.apps.length) {

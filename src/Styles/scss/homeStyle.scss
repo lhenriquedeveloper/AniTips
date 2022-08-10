@@ -1,7 +1,6 @@
 @use "./colors.scss" as colors;
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap");
 .container {
   width: 100%;
   align-items: center;
@@ -10,6 +9,8 @@
   .lista-animes {
     margin: 50px;
     .slick-container {
+      overflow: hidden;
+      text-overflow: ellipsis;
       article {
         min-width: 300px;
         margin-bottom: 5%;
@@ -17,16 +18,16 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       a {
-        font-family: "Big Shoulders Display", cursive;
-        font-size: 20px;
+        font-size: 17px;
         background-color: #efefef;
         border: none;
         text-decoration: none;
         align-self: center;
         justify-content: center;
-        overflow: hidden;
         text-align: center;
         cursor: pointer;
         color: colors.$whitecolor;
@@ -34,8 +35,9 @@
         border-bottom-left-radius: 7px;
         border-bottom-right-radius: 7px;
         width: 250px;
-        height: 40px;
+        height: 48px;
         padding: 7px;
+        font-family: "Roboto", sans-serif;
         transition: 0.8s;
         &:hover {
           background-color: #cc1d00;
@@ -45,7 +47,7 @@
         border: 2px solid black;
         cursor: pointer;
         width: 250px;
-        height: 420px;
+        height: 400px;
       }
     }
   }

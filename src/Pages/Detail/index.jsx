@@ -3,7 +3,7 @@ import { Navigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import api from "../../Services/api";
 import firebase from "../../Services/firebaseconnection";
-import "../../Styles/css/animeDetailStyle.css";
+import "../../Styles/scss/animeDetailStyle.scss";
 
 
 export default function Detail() {

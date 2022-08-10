@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom"
 import { lazy, Suspense, useContext, useEffect } from "react"
 import { UserContext } from "../Contexts/user"
 import firebase from "../Services/firebaseconnection"
-import "../Styles/css/renderingStyle.css"
+import "../Styles/scss/renderingStyle.scss"
 
 
 const Login = lazy(() => import('../Pages/Login'))

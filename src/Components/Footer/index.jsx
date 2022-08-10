@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import "../../Styles/css/footerStyle.css"
+import "../../Styles/scss/footerStyle.scss"
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 export default function Footer() {

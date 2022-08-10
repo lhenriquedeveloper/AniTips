@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useContext } from "react";
 import { UserContext } from "../../Contexts/user"
-import '../../Styles/css/headerStyle.css';
+import '../../Styles/scss/headerStyle.scss';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SaveIcon from '@mui/icons-material/Save';
 import firebase from "../../Services/firebaseconnection";

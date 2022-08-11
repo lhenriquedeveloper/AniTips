@@ -16,47 +16,44 @@ export default function Home() {
   const [slickConfig, setSlickConfig] = useState();
   let navigate = useNavigate();
 
-
   //Verify Login Functions
   useEffect(() => {
     async function verifyLogin() {
-      await firebase.auth()
-        .onAuthStateChanged((user) => {
-          if (user) {
-            //online
-            setUserLogged(true);
-          }
-          else {
-            //offline
-            setUserLogged(false);
-          }
-        })
+      await firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          //online
+          setUserLogged(true);
+        } else {
+          //offline
+          setUserLogged(false);
+        }
+      });
     }
     verifyLogin();
-  }, [])
+  }, []);
 
   // Load Animes Function
   useEffect(() => {
     async function loadAnimes() {
-      const animes = await Promise.all(Array.from({ length: 10 }, (v, i) => i).map(async () => {
-        const { data } = await api.get("/random/anime");
-        if(data.data.explicit_genres === []){
-        return data.data;
-        }
-        return null;
-        
-      }))
+      const animes = await Promise.all(
+        Array.from({ length: 10 }, (v, i) => i).map(async () => {
+          const { data } = await api.get("/random/anime");
+          if (data.data.explicit_genres.length === 0) {
+            return data.data;
+          }
+          return null;
+        })
+      );
       setAnimes(animes.filter((a) => !!a));
     }
     loadAnimes();
   }, []);
 
-
   // Responsive Function
   useEffect(() => {
     function sizeOfThings() {
       setScreenSize(window.innerWidth);
-    };
+    }
 
     sizeOfThings();
 
@@ -68,11 +65,10 @@ export default function Home() {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 3500
-      }
+        autoplaySpeed: 3500,
+      };
       setSlickConfig(settingsSlick);
-    }
-    else {
+    } else {
       const settingsSlick = {
         dots: true,
         infinite: true,
@@ -80,36 +76,47 @@ export default function Home() {
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 3500
-      }
+        autoplaySpeed: 3500,
+      };
       setSlickConfig(settingsSlick);
     }
+  }, [screenSize]);
 
-
-  }, [screenSize])
-
-
-
-
-  return (<><div className="container">
-    <div className="lista-animes">
-      <Slider {...slickConfig}>
-        {animes.map((anime) => {
-          return (
-            <div className="slick-container" key={anime.mal_id}>
-              <article>
-                <img src={anime.images.jpg.image_url} alt={anime.title} onClick={() => { navigate(`/detail/${anime.mal_id}`); }} />
-                <Link to={`/detail/${anime.mal_id}`}>{anime.title}</Link>
-              </article>
-            </div>
-          );
-        })}
-      </Slider>
-    </div>
-    <div className="button-area">
-      <button className="refresh-button" onClick={() => { location.reload(); }}>REFRESH</button>
-    </div>
-  </div><Footer /></>
+  return (
+    <>
+      <div className="container">
+        <div className="lista-animes">
+          <Slider {...slickConfig}>
+            {animes.map((anime) => {
+              return (
+                <div className="slick-container" key={anime.mal_id}>
+                  <article>
+                    <img
+                      src={anime.images.jpg.image_url}
+                      alt={anime.title}
+                      onClick={() => {
+                        navigate(`/detail/${anime.mal_id}`);
+                      }}
+                    />
+                    <Link to={`/detail/${anime.mal_id}`}>{anime.title}</Link>
+                  </article>
+                </div>
+              );
+            })}
+          </Slider>
+        </div>
+        <div className="button-area">
+          <button
+            className="refresh-button"
+            onClick={() => {
+              location.reload();
+            }}
+          >
+            REFRESH
+          </button>
+        </div>
+      </div>
+      <Footer />
+    </>
   );
-
 }

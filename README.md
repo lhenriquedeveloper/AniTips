@@ -1,4 +1,5 @@
 # AniTips
+
 Application developed with React.JS to show anime recommendations
 
 

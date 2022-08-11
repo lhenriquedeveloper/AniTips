@@ -46,7 +46,7 @@ export default function Home() {
         return null;
         
       }))
-      setAnimes(animes.filter((a) => a !== null));
+      setAnimes(animes.filter((a) => !!a));
     }
     loadAnimes();
   }, []);

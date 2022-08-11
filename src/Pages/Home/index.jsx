@@ -32,13 +32,21 @@ export default function Home() {
     verifyLogin();
   }, []);
 
-  // Load Animes Function
+  // Load Animes Function + NSFW Filter
+
+
   useEffect(() => {
     async function loadAnimes() {
       const animes = await Promise.all(
         Array.from({ length: 10 }, (v, i) => i).map(async () => {
           const { data } = await api.get("/random/anime");
-          if (data.data.explicit_genres.length === 0) {
+
+          var nsfwFilter = data.data.genres.filter(function (obj) {
+            return obj.name == 'Hentai'
+          })
+          console.log(nsfwFilter);
+
+          if (data.data.explicit_genres.length === 0 && nsfwFilter.length === 0) {
             return data.data;
           }
           return null;

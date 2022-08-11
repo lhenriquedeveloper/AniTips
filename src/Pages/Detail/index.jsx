@@ -9,8 +9,9 @@ import "../../Styles/scss/animeDetailStyle.scss";
 export default function Detail() {
     //Contexts, States and Hooks
     const { id } = useParams();
-    const [uniqueAnime, setUniqueAnime] = useState([]);
+    const [anime, setAnime] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [generos, setGeneros] = useState([]);
 
 
     //Load Anime Function
@@ -23,7 +24,7 @@ export default function Detail() {
                 return;
             }
             else {
-                setUniqueAnime(response.data.data);
+                setAnime(response.data.data);
                 setLoading(false);
             }
         }
@@ -42,18 +43,18 @@ export default function Detail() {
 
     // Have Trailer? and Responsive Function
     const VerifyAnime = () => {
-        if (!uniqueAnime.trailer.embed_url || screen.width < 800) {
+        if (!anime.trailer.embed_url || window.innerWidth < 800) {
             return (
                 <div className="i-box">
-                    <img src={uniqueAnime.images.jpg.image_url} alt={uniqueAnime.title} />
+                    <img src={anime.images.jpg.image_url} alt={anime.title} />
                 </div>
             )
         }
         else {
             return (
                 <div className="i-box">
-                    <img src={uniqueAnime.images.jpg.image_url} alt={uniqueAnime.title} />
-                    <iframe src={uniqueAnime.trailer.embed_url} frameBorder="0"></iframe>
+                    <img src={anime.images.jpg.image_url} alt={anime.title} />
+                    <iframe src={anime.trailer.embed_url} frameBorder="0"></iframe>
                 </div>
             )
         }
@@ -70,8 +71,8 @@ export default function Detail() {
             .collection("animes")
             .doc(uniqueAnime.mal_id.toString())
             .set({
-                animeName: uniqueAnime.title,
-                idAnime: uniqueAnime.mal_id
+                animeName: anime.title,
+                idAnime: anime.mal_id
             })
             .then(() => {
                 toast.success('Anime successfully saved', {
@@ -87,23 +88,32 @@ export default function Detail() {
     }
 
 
+
+
+    // const generosAni = anime.genres.map(obj => obj.name);
+    // setGeneros(generosAni);
+    // console.log(generos);
+
+
+
+
     return (
         <div>
             <div className="anime-info">
-                <h1>{uniqueAnime.title}</h1>
+                <h1>{anime.title}</h1>
                 <VerifyAnime />
                 <h3>Synopsis:</h3>
-                <p>{uniqueAnime.synopsis}</p>
-                <span>Aired In: {uniqueAnime.aired.string}</span>
-                <span>Number of Episodes: {uniqueAnime.episodes}</span>
-                <span>Genres: {uniqueAnime.genres.name}</span>
-                <span>Score: {uniqueAnime.score}/10</span>
+                <p>{anime.synopsis}</p>
+                <span>Aired In: {anime.aired.string}</span>
+                <span>Number of Episodes: {anime.episodes}</span>
+                <span>Genres: { }</span>
+                <span>Score: {anime.score}/10</span>
                 <div className="botoes">
                     <button onClick={saveAnime}> Save Anime </button>
                     <button>
                         <a
                             target="blank"
-                            href={`https://www.youtube.com/results?search_query= ${uniqueAnime.title} Trailer`}
+                            href={`https://www.youtube.com/results?search_query= ${anime.title} Trailer`}
                         >
                             Search Trailer on Youtube
                         </a>

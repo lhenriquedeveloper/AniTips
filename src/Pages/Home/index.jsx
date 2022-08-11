@@ -39,10 +39,14 @@ export default function Home() {
   useEffect(() => {
     async function loadAnimes() {
       const animes = await Promise.all(Array.from({ length: 10 }, (v, i) => i).map(async () => {
-        const { data } = await api.get("/random/anime")
-        return data.data
+        const { data } = await api.get("/random/anime");
+        if(data.data.explicit_genres === []){
+        return data.data;
+        }
+        return null;
+        
       }))
-      setAnimes(animes);
+      setAnimes(animes.filter((a) => a !== null);
     }
     loadAnimes();
   }, []);

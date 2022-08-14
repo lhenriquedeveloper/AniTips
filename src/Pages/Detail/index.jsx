@@ -69,7 +69,7 @@ export default function Detail() {
             .collection("favorites")
             .doc(user.uid)
             .collection("animes")
-            .doc(uniqueAnime.mal_id.toString())
+            .doc(anime.mal_id.toString())
             .set({
                 animeName: anime.title,
                 idAnime: anime.mal_id

@@ -33,7 +33,7 @@
     li {
       padding: 0;
       list-style: none;
-      min-width: 600px;
+      width: 600px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -60,9 +60,18 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   ul.animelist {
-    width: 300px;
-    margin-right: 5rem;
+    li {
+      width: 500px !important;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  ul.animelist {
+    li {
+      width: 470px !important;
+    }
   }
 }

@@ -43,7 +43,7 @@ export default function Detail() {
 
     // Have Trailer? and Responsive Function
     const VerifyAnime = () => {
-        if (!anime.trailer.embed_url || window.innerWidth < 800) {
+        if (!anime.trailer.embed_url || window.innerWidth < 585) {
             return (
                 <div className="i-box">
                     <img src={anime.images.jpg.image_url} alt={anime.title} />
@@ -89,10 +89,10 @@ export default function Detail() {
 
 
 
+    // Separating array of genres
+    const generosAni = anime.genres.map(obj => obj.name);
+    generos.push(...generos, generosAni);
 
-    // const generosAni = anime.genres.map(obj => obj.name);
-    // setGeneros(generosAni);
-    // console.log(generos);
 
 
 
@@ -106,7 +106,7 @@ export default function Detail() {
                 <p>{anime.synopsis}</p>
                 <span>Aired In: {anime.aired.string}</span>
                 <span>Number of Episodes: {anime.episodes}</span>
-                <span>Genres: { }</span>
+                <span>Genres: {generos.toString()}</span>
                 <span>Score: {anime.score}/10</span>
                 <div className="botoes">
                     <button onClick={saveAnime}> Save Anime </button>

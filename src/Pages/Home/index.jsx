@@ -33,8 +33,6 @@ export default function Home() {
   }, []);
 
   // Load Animes Function + NSFW Filter
-
-
   useEffect(() => {
     async function loadAnimes() {
       const animes = await Promise.all(
@@ -44,8 +42,6 @@ export default function Home() {
           var nsfwFilter = data.data.genres.filter(function (obj) {
             return obj.name == 'Hentai'
           })
-          console.log(nsfwFilter);
-
           if (data.data.explicit_genres.length === 0 && nsfwFilter.length === 0) {
             return data.data;
           }

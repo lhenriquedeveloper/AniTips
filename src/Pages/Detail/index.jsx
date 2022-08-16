@@ -93,10 +93,6 @@ export default function Detail() {
     const generosAni = anime.genres.map(obj => obj.name);
     generos.push(...generos, generosAni);
 
-
-
-
-
     return (
         <div>
             <div className="anime-info">
@@ -120,7 +116,6 @@ export default function Detail() {
                     </button>
                 </div>
             </div>
-
         </div>
     )
 }

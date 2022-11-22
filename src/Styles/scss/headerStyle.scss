@@ -2,7 +2,9 @@
 header {
   position: sticky;
   top: 0;
+  
   .navigationWrapper {
+    
     position: relative;
     display: flex;
     align-items: center;
@@ -31,6 +33,7 @@ header {
     }
 
     .navigation {
+      margin-top: 100px;
       display: flex;
       list-style-type: none;
 

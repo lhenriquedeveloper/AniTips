@@ -8,13 +8,24 @@ footer {
     color: colors.$whitecolor;
     padding: 10px;
     bottom: 0;
-    height: 40px;
-    width: 100%;
+    height: 2.5rem;
+    width: 100vw;
     position: fixed;
     .logoWrapper-footer {
+      
+     
       .stylish-footer {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: .4rem;
         font-style: italic;
         a {
+          
+
+          display: flex;
+          align-items: center;
+          gap: .4rem;
           color: colors.$whitecolor;
           font-size: 16px;
           text-decoration: none;

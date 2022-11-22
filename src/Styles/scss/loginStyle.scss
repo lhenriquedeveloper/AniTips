@@ -3,7 +3,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 .content-login-area {
-  margin-top: 150px;
+  margin: auto;
+  padding-left: 1.25rem;
+  
+  padding-right: 1.25rem;
+  width: 100vw;
+  
   #login-form-wrap {
     h2 {
       font-family: "Press Start 2P", cursive;
@@ -13,14 +18,16 @@
       color: colors.$whitecolor;
     }
     background-color: colors.$backgroundcolor;
-    min-width: 450px;
-    max-width: 600px;
-    min-height: 400px;
-    margin: 50px auto;
+    min-width: 13.125rem;
+    max-width: 37.5rem;
+    min-height: 25rem;
+    margin: 3.125rem auto;
     text-align: center;
     justify-content: center;
     align-self: center;
     padding-top: 100px;
+    padding-left: 1rem;
+    padding-right: 1rem;
     border-radius: 4px;
     box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.8);
   }

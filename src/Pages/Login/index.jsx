@@ -53,53 +53,55 @@ export default function Login() {
   }
 
   return (
-    <div className="content-login-area">
-      <div id="login-form-wrap">
-        <h2>SIGN IN:</h2>
-        <div id="login-form">
-          <p>
-            <input
-              required
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-              value={email}
-              autoComplete="off"
-              className="login"
-              type="email"
-              id="email"
-              name="email"
-              placeholder="email@email.com"
-            />
-          </p>
-          <p>
-            <input
-              required
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-              value={password}
-              autoComplete="off"
-              className="login"
-              type="password"
-              id="password"
-              name="password"
-              placeholder="********"
-            />
-          </p>
-          <p>
-            <Link className="register-link" to="/register">
-              Don't have an account yet? Sign up here!
-            </Link>
-          </p>
-          <p>
-            <button onClick={doLogin} className="logbtn">
-              Login
-            </button>
-          </p>
+    <>
+      <div className="content-login-area">
+        <div id="login-form-wrap">
+          <h2>SIGN IN:</h2>
+          <div id="login-form">
+            <p>
+              <input
+                required
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+                value={email}
+                autoComplete="off"
+                className="login"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="email@email.com"
+              />
+            </p>
+            <p>
+              <input
+                required
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+                value={password}
+                autoComplete="off"
+                className="login"
+                type="password"
+                id="password"
+                name="password"
+                placeholder="********"
+              />
+            </p>
+            <p>
+              <Link className="register-link" to="/register">
+                Don't have an account yet? Sign up here!
+              </Link>
+            </p>
+            <p>
+              <button onClick={doLogin} className="logbtn">
+                Login
+              </button>
+            </p>
+          </div>
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 }

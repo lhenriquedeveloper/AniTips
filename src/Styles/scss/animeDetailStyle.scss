@@ -1,8 +1,6 @@
-@use "./colors.scss" as colors;
-@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 .anime-loading {
   text-align: center;
@@ -11,19 +9,30 @@
   font-weight: bold;
   font-style: italic;
   color: white;
-  font-family: "M PLUS Rounded 1c", sans-serif;
 }
 
 .anime-info {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 1rem;
 
   .i-box {
     display: flex;
     justify-content: center;
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      span {
+        margin: 1rem;
+        font-size: 16px;
+        font-family: "Poppins";
+        color: #fff;
+      }
+    }
     img {
-      border: 2px solid colors.$backgroundcolor;
+      border: 2px solid #222;
       margin-right: 1rem;
       width: 250px;
       height: 350px;
@@ -31,45 +40,44 @@
     iframe {
       width: 700px;
       height: 350px;
-      border: 2px solid colors.$backgroundcolor;
+      border: 2px solid #222;
     }
   }
 
   h1 {
-    padding-top: 2px;
     padding-bottom: 1rem;
-    font-family: "Staatliches", cursive;
+    font-family: "Poppins";
     align-self: center;
     font-style: italic;
-  }
-  h3 {
-    align-self: center;
-    margin-left: 1rem;
-    padding-top: 2rem;
-    color: colors.$whitecolor;
-    font-style: italic;
+    color: #fff;
   }
 
-  span {
-    margin-left: 1rem;
-    padding: 5px;
-    font-size: 20px;
-    font-family: "Bebas Neue", cursive;
-    color: colors.$whitecolor;
+  .sinopse {
+    display: flex;
+    width: 813px;
+    flex-wrap: wrap;
+    h3 {
+      padding-top: 2rem;
+      color: #fff;
+      font-style: italic;
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 500;
+    }
+    p {
+      padding: 1px;
+      text-align: justify;
+      margin-top: 1rem;
+      font-size: 18px;
+      color: #868686;
+      font-family: "Hind", sans-serif;
+    }
   }
 
-  p {
-    padding: 1px;
-    text-align: justify;
-    margin: 1rem;
-    font-size: 18px;
-    color: colors.$whitecolor;
-    font-family: "Hind", sans-serif;
-  }
   button {
     margin-top: 1rem;
-    background-color: colors.$backgroundcolor;
-    color: colors.$whitecolor;
+    background-color: #222;
+    color: #fff;
     margin-right: 1rem;
     cursor: pointer;
     border: 0;
@@ -79,13 +87,18 @@
     outline: none;
     padding: 12px;
     transition: all 1s;
+    border-radius: 5px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
     a {
       text-decoration: none;
-      color: colors.$whitecolor;
+      color: #fff;
     }
     &:hover {
-      background-color: colors.$maincolor;
+      background-color: #2f93f6;
     }
+    margin-bottom: 1rem;
   }
   .botoes {
     align-self: center;

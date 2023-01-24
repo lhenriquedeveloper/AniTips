@@ -3,15 +3,18 @@ import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';
 import { UserContext } from '../../Contexts/user';
+import { PulseLoader } from "react-spinners";
 
 
 export default function Register() {
     //Contexts, States and Hooks
     let navigate = useNavigate();
     const { nickname, setNickname, email, setEmail, password, setPassword } = useContext(UserContext);
+    const [loading, setLoading] = useState(false);
 
     // New User Create Function
     async function newUser() {
+        setLoading(true);
         await firebase
             .auth()
             .createUserWithEmailAndPassword(email, password)
@@ -29,6 +32,7 @@ export default function Register() {
                         setNickname("");
                         setEmail("");
                         setPassword("");
+                        setLoading(false);
                         navigate("/");
                     })
             })
@@ -57,26 +61,30 @@ export default function Register() {
     }
 
     return (
-        <div>
-            <div className="content-login-area">
-                <div id="login-form-wrap">
-                    <h2>SIGN UP:</h2>
-                    <div id="login-form">
-                        <p>
-                            <input onChange={(e) => { setNickname(e.target.value) }} value={nickname} required autoComplete="off" className="login" type="nickname" id="nickname" name="nickname" placeholder="Type your nickname here" />
-                        </p>
-                        <p>
-                            <input onChange={(e) => { setEmail(e.target.value) }} value={email} required autoComplete="off" className="login" type="email" id="email" name="email" placeholder="email@email.com" />
-                        </p>
-                        <p>
-                            <input onChange={(e) => { setPassword(e.target.value) }} value={password} required autoComplete="off" className="login" type="password" id="password" name="password" placeholder="********" />
-                        </p>
-                        <p>
-                            <button onClick={newUser} className="logbtn">Register</button>
-                        </p>
+        <>
+            <div className="content-login">
+                <div className="login-info">
+                    <h1 className="title">Sign Up</h1>
+                </div>
+                <div className="login-data">
+                    <div className="textfield">
+                        <label>Nickname:</label>
+                        <input onChange={(e) => { setNickname(e.target.value) }} value={nickname} required autoComplete="off" className="login" type="nickname" id="nickname" name="nickname" placeholder="Type your nickname here" />
+                    </div>
+                    <div className="textfield">
+                        <label>E-mail:</label>
+                        <input onChange={(e) => { setEmail(e.target.value) }} value={email} required autoComplete="off" className="login" type="email" id="email" name="email" placeholder="email@email.com" />
+                    </div>
+                    <div className="textfield">
+                        <label>Password:</label>
+                        <input onChange={(e) => { setPassword(e.target.value) }} value={password} required autoComplete="off" className="login" type="password" id="password" name="password" placeholder="********" />
                     </div>
                 </div>
+
+                <div className="login-button">
+                    <button className="btn-login" onClick={newUser}>{loading ? <PulseLoader color={'#fff'} size={14} /> : 'Register'}</button>
+                </div>
             </div>
-        </div>
+        </>
     )
 }

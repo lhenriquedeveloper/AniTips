@@ -1,7 +1,4 @@
-@use "./colors.scss" as colors;
-@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Gruppo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 #my-animes {
   display: flex;
@@ -11,20 +8,23 @@
   align-items: center;
 
   h1 {
-    font-style: italic;
-    font-weight: 400;
-    font-family: "Gruppo", cursive;
-    color: colors.$whitecolor;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    color: #fff;
     text-transform: uppercase;
     font-size: 45px;
     margin-top: 15px;
     margin-bottom: 20px;
   }
   span.nothing {
-    font-family: "PT Sans", sans-serif;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
     font-size: 18px;
     font-style: italic;
     font-weight: 500;
+    color: #fff;
   }
 
   ul.animelist {
@@ -43,19 +43,22 @@
         padding: 5px;
         border-radius: 8px;
         margin-right: 10px;
-        background-color: colors.$backgroundcolor;
-        color: colors.$whitecolor;
+        background-color: #222;
+        color: #fff;
         cursor: pointer;
         transition: all 0.7s;
         &:hover {
-          color: red;
+          color: #2f93f6;
         }
       }
     }
     span {
       font-style: italic;
-      font-family: "Staatliches", cursive;
-      font-size: 23px;
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      color: #fff;
     }
   }
 }

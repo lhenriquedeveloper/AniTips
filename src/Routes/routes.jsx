@@ -5,6 +5,8 @@ import firebase from "../Services/firebaseconnection"
 import "../Styles/scss/renderingStyle.scss"
 
 
+
+
 const Login = lazy(() => import('../Pages/Login'))
 const Register = lazy(() => import('../Pages/Register'));
 const Home = lazy(() => import('../Pages/Home'));
@@ -33,7 +35,7 @@ export default function RoutesFile() {
         <div>
             <Suspense fallback={
                 <div className="rendering-display">
-                    <h1 className="rendering-message">Loading....</h1>
+                    <h1 className="rendering-message">Loading...</h1>
                 </div>
             }>
                 <Routes>

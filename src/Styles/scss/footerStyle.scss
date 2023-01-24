@@ -1,37 +1,32 @@
-@use "./colors.scss" as colors;
 footer {
   .navigationWrapper-footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: colors.$backgroundcolor;
-    color: colors.$whitecolor;
+    background-color: #161b22;
+    color: #fff;
     padding: 10px;
     bottom: 0;
     height: 2.5rem;
     width: 100vw;
     position: fixed;
     .logoWrapper-footer {
-      
-     
       .stylish-footer {
         width: 100%;
         display: flex;
         align-items: center;
-        gap: .4rem;
+        gap: 0.4rem;
         font-style: italic;
         a {
-          
-
           display: flex;
           align-items: center;
-          gap: .4rem;
-          color: colors.$whitecolor;
+          gap: 0.4rem;
+          color: #fff;
           font-size: 16px;
           text-decoration: none;
           transition: all 0.7s ease-in-out;
           &:hover {
-            color: colors.$maincolor;
+            color: #2f93f6;
           }
         }
       }

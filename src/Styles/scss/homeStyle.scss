@@ -1,6 +1,5 @@
-@use "./colors.scss" as colors;
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 .container {
   width: 100%;
   align-items: center;
@@ -22,29 +21,31 @@
         text-overflow: ellipsis;
       }
       a {
+        margin-top: 10px;
         font-size: 17px;
-        background-color: #efefef;
         border: none;
         text-decoration: none;
         align-self: center;
         justify-content: center;
-        text-align: center;
         cursor: pointer;
-        color: colors.$whitecolor;
-        background-color: colors.$backgroundcolor;
-        border-bottom-left-radius: 7px;
-        border-bottom-right-radius: 7px;
+        color: #fff;
+        background: none;
         width: 250px;
-        height: 48px;
+        height: 65px;
         padding: 7px;
-        font-family: "Roboto", sans-serif;
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        text-align: center;
         transition: 0.8s;
         &:hover {
-          background-color: #cc1d00;
+          color: #2f93f6;
         }
       }
       img {
-        border: 2px solid black;
+        border-radius: 12px;
         cursor: pointer;
         width: 250px;
         height: 400px;
@@ -58,23 +59,18 @@
     justify-content: center;
     flex-direction: column;
     .refresh-button {
-      font-style: italic;
-      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-      background-color: colors.$backgroundcolor;
-      color: colors.$whitecolor;
+      background: none;
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
-      border: solid 2px colors.$secondcolor;
       cursor: pointer;
       width: 100px;
       height: 50px;
+      border: none;
+      transition: 0.6s;
       &:hover {
-        transition: 0.8s;
-        background-color: #e32636;
-        box-shadow: inset 0px 0px 26px -9px colors.$secondcolor,
-          0px 0px 15px 5px colors.$secondcolor;
+        color: #2f93f6;
       }
     }
   }

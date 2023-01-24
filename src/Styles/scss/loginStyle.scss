@@ -1,103 +1,118 @@
-@use "./colors.scss" as colors;
-@import url("https://fonts.googleapis.com/css2?family=Gruppo&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-.content-login-area {
-  margin: auto;
-  padding-left: 1.25rem;
-  
-  padding-right: 1.25rem;
-  width: 100vw;
-  
-  #login-form-wrap {
-    h2 {
-      font-family: "Press Start 2P", cursive;
-      padding-bottom: 20px;
-      font-weight: 400;
-      text-align: center;
-      color: colors.$whitecolor;
+.content-login {
+  margin-top: 150px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  .login-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 5px;
+    width: 199px;
+    height: 63px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-bottom: 10px;
+    h1.title {
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 36px;
+      color: #fff;
     }
-    background-color: colors.$backgroundcolor;
-    min-width: 13.125rem;
-    max-width: 37.5rem;
-    min-height: 25rem;
-    margin: 3.125rem auto;
-    text-align: center;
-    justify-content: center;
-    align-self: center;
-    padding-top: 100px;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    border-radius: 4px;
-    box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.8);
-  }
-
-  #login-form {
-    padding: 5%;
-    p {
-      position: relative;
+    p.subtitle {
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 22px;
+      color: #949ca9;
     }
   }
+  .login-data {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    label {
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 22px;
+      color: #fff;
+    }
+    input {
+      margin-top: 5px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 15px;
+      gap: 10px;
+      width: 460px;
+      height: 52px;
+      background: #202024;
+      border: 1px solid #202024;
+      border-radius: 6px;
+      flex: none;
 
-  input.login {
-    padding: 10px;
-    box-sizing: border-box;
-    width: 100%;
-    outline: none;
-    height: 60px;
-    line-height: 60px;
-    border-radius: 4px;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    color: #8a8b8e;
-    border: 1.2px solid #c2c0ca;
-    font-style: normal;
-    font-size: 16px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    position: relative;
-    display: inline-block;
-    background: none;
-    &:focus {
-      border-color: colors.$maincolor;
+      align-self: stretch;
+
+      color: #949ca9;
+    }
+    input::placeholder {
+      color: #949ca9;
     }
   }
-
-  button.logbtn {
-    margin-top: 20px;
-    border: none;
-    font-family: "Gruppo", cursive;
-    font-size: 25px;
-    font-weight: 600;
-    font-style: italic;
-    text-decoration: none;
-    color: colors.$backgroundcolor;
-    width: 100%;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: colors.$whitecolor;
-    cursor: pointer;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    text-align: center;
-    transition: 0.8s;
-    &:hover {
-      background-color: colors.$maincolor;
+  .login-button {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    button {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 49px;
+      width: 460px;
+      height: 52px;
+      background: #2f93f6;
+      border-radius: 6px;
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+      color: #fff;
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+      cursor: pointer;
+      &:hover {
+        background: #2f93f6;
+        opacity: 0.8;
+      }
     }
   }
-  .register-link {
-    font-size: 18px;
-    font-style: italic;
-    text-decoration: none;
-    color: colors.$whitecolor;
-    transition: 0.5s;
-    &:hover {
-      color: colors.$maincolor;
+  .register {
+    margin-top: 10px;
+    a {
+      font-family: "Poppins";
+      font-style: normal;
+      text-decoration: none;
+      cursor: pointer;
+      color: #fff;
+      font-size: 13px;
+      &:hover {
+        color: #2f93f6;
+      }
     }
   }
 }

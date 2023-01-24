@@ -7,6 +7,7 @@ import { AnimeContext } from "../../Contexts/animes";
 import { UserContext } from "../../Contexts/user";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../Components/Footer";
+import { FiRefreshCw } from 'react-icons/fi';
 
 export default function Home() {
   //Contexts
@@ -36,7 +37,7 @@ export default function Home() {
   useEffect(() => {
     async function loadAnimes() {
       const animes = await Promise.all(
-        Array.from({ length: 10 }, (v, i) => i).map(async () => {
+        Array.from({ length: 12 }, (v, i) => i).map(async () => {
           const { data } = await api.get("/random/anime");
 
           var nsfwFilter = data.data.genres.filter(function (obj) {
@@ -69,18 +70,18 @@ export default function Home() {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 3500,
+        autoplaySpeed: 4000,
       };
       setSlickConfig(settingsSlick);
     } else {
       const settingsSlick = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1,
+        slidesToShow: 4,
+        slidesToScroll: 4,
         autoplay: true,
-        autoplaySpeed: 3500,
+        autoplaySpeed: 4000,
       };
       setSlickConfig(settingsSlick);
     }
@@ -116,7 +117,7 @@ export default function Home() {
               location.reload();
             }}
           >
-            REFRESH
+            <FiRefreshCw size={25} />
           </button>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import api from "../../Services/api";
 import firebase from "../../Services/firebaseconnection";
 import "../../Styles/scss/animeDetailStyle.scss";
+import { ClipLoader } from "react-spinners";
 
 
 export default function Detail() {
@@ -36,7 +37,7 @@ export default function Detail() {
     if (loading) {
         return (
             <div className="anime-loading">
-                <h1>Loading your anime...</h1>
+                <ClipLoader color="#fff"></ClipLoader>
             </div>
         );
     }
@@ -47,6 +48,12 @@ export default function Detail() {
             return (
                 <div className="i-box">
                     <img src={anime.images.jpg.image_url} alt={anime.title} />
+                    <div className="info">
+                        <span>Aired In: {anime.aired.string}</span>
+                        <span>Number of Episodes: {anime.episodes}</span>
+                        <span>Genres: {generos.toString()}</span>
+                        <span>Score: {anime.score}/10</span>
+                    </div>
                 </div>
             )
         }
@@ -98,12 +105,10 @@ export default function Detail() {
             <div className="anime-info">
                 <h1>{anime.title}</h1>
                 <VerifyAnime />
-                <h3>Synopsis:</h3>
-                <p>{anime.synopsis}</p>
-                <span>Aired In: {anime.aired.string}</span>
-                <span>Number of Episodes: {anime.episodes}</span>
-                <span>Genres: {generos.toString()}</span>
-                <span>Score: {anime.score}/10</span>
+                <div className="sinopse">
+                    <h3>Synopsis:</h3>
+                    <p>{anime.synopsis}</p>
+                </div>
                 <div className="botoes">
                     <button onClick={saveAnime}> Save Anime </button>
                     <button>

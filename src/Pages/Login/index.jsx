@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../Contexts/user";
 import { toast } from "react-toastify";
 import { PulseLoader } from "react-spinners";
+import animeHero from "../../Assets/anime-hero-image.png"
 
 export default function Login() {
   //Contexts, States e Hooks
@@ -58,52 +59,64 @@ export default function Login() {
 
   return (
     <>
-      <div className="content-login">
-        <div className="login-info">
-          <h1 className="title">Sign In</h1>
-          <p className="subtitle">Let's know some new animes?</p>
-        </div>
-
-        <div className="login-data">
-          <div className="textfield">
-            <label>E-mail:</label>
-            <input placeholder="Enter with your e-mail"
-              required
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-              value={email}
-              autoComplete="off"
-              className="login"
-              type="email"
-              id="email"
-              name="email" />
-          </div>
-          <div className="textfield">
-            <label>Password:</label>
-            <input placeholder="Enter with your password"
-              required
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-              value={password}
-              autoComplete="off"
-              className="login"
-              type="password"
-              id="password"
-              name="password" />
-          </div>
-        </div>
-
-        <div className="login-button">
-          <button className="btn-login" onClick={doLogin}>{loading ? <PulseLoader color={'#fff'} size={14} /> : 'Login'}</button>
-        </div>
-
-        <div className="register">
-          <Link to="/register">Don't have an account yet? Sign up here!</Link>
+  <div className="anime-login-container">
+    <div className="anime-login-content">
+      <div className="anime-intro">
+        <h1 className="anime-title">Discover New Worlds</h1>
+        <p className="anime-subtitle">
+          Your gateway to exploring an amazing selection of animes.
+        </p>
+        <div className="anime-cta">
+          <p>Join now or sign in to start your journey!</p>
         </div>
       </div>
-      <Footer />
-    </>
+
+      <div className="anime-login-form">
+        <div className="textfield">
+          <label htmlFor="email">E-mail:</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your e-mail"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            autoComplete="off"
+            required
+          />
+        </div>
+        <div className="textfield">
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            autoComplete="off"
+            required
+          />
+        </div>
+        <button className="btn-login" onClick={doLogin}>
+          {loading ? <PulseLoader color="#fff" size={14} /> : 'Login'}
+        </button>
+        <p className="register-cta">
+          Don't have an account?{' '}
+          <Link to="/register" className="register-link">
+            Sign up now!
+          </Link>
+        </p>
+      </div>
+    </div>
+
+    <div className="anime-bg">
+      <img
+        src={animeHero}
+        alt="Anime hero background"
+        className="anime-hero-image"
+      />
+    </div>
+  </div>
+  <Footer />
+</>
   );
 }

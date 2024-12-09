@@ -1,0 +1,109 @@
+.content-signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: #121212;
+  height: 100vh;
+
+  .signup-info {
+    margin-bottom: 20px;
+    .title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+    }
+  }
+
+  .signup-data {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 400px;
+
+    .textfield {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      label {
+        font-size: 14px;
+        color: #fff;
+      }
+
+      .signup-input {
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid #2f93f6;
+        border-radius: 5px;
+        background-color: #1e252d;
+        color: #fff;
+        transition: all 0.3s ease;
+        width: 100%;
+
+        &:focus {
+          border-color: #2f93f6;
+          outline: none;
+          background-color: #2f93f6;
+        }
+
+        &::placeholder {
+          color: #ccc;
+        }
+      }
+    }
+  }
+
+  .signup-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 400px;
+
+    .btn-signup {
+      padding: 12px 20px;
+      font-size: 18px;
+      color: #fff;
+      background-color: #2f93f6;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+
+      &:hover {
+        background-color: #1f79c4;
+      }
+
+      &:active {
+        background-color: #1778b6;
+      }
+    }
+
+    .btn-home {
+      padding: 12px 20px;
+      font-size: 18px;
+      color: #fff;
+      background-color: #4caf50;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+
+      &:hover {
+        background-color: #45a049;
+      }
+
+      &:active {
+        background-color: #388e3c;
+      }
+    }
+  }
+}

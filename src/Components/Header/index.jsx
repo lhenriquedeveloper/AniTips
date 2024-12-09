@@ -15,10 +15,11 @@ function LogButtons(props) {
     const isLoggedIn = props.isLoggedIn;
     if (isLoggedIn) {
         return (
-            <ul className="navigation">
-                <li className="parent"><Link to="/saves" className="link" > <SaveIcon /> </Link></li>
-                <li className="parent"><Link onClick={logout} to="/" className="link"> <LogoutIcon /></Link></li>
-            </ul>
+          <ul className="navigation">
+          <li className="navItem">
+            <a href="/saves" className="navLink">Favorites</a>
+          </li>
+        </ul>
         )
     }
     else {
@@ -33,13 +34,13 @@ export default function Header() {
     let navigate = useNavigate();
     return (
         <header className="header">
-            <nav className="navigationWrapper">
-                <div className="logoWrapper" onClick={() => { navigate("/home") }}>
-                    <span className="stylish">Anime</span>
-                    <span className="logo">Tips</span>
-                </div>
-                <LogButtons isLoggedIn={userLogged} />
-            </nav>
-        </header>
+        <nav className="navigationWrapper">
+          <div className="logoWrapper" onClick={() => navigate("/home")}>
+            <span className="stylish">Ani</span>
+            <span className="logo">Tips</span>
+          </div>
+          <LogButtons isLoggedIn={userLogged} />
+        </nav>
+      </header>
     )
 }

@@ -1,118 +1,129 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-.content-login {
-  margin-top: 150px;
+$primary-color: #2e8ff0;
+$secondary-color: #2f93f6;
+$bg-color: #121212;
+$text-color: #e5e5e5;
+$hover-color: lighten($secondary-color, 10%);
+
+body {
+  background: $bg-color;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+}
+
+.anime-login-container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  .login-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0px;
-    gap: 5px;
-    width: 199px;
-    height: 63px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    margin-bottom: 10px;
-    h1.title {
-      font-family: "Poppins";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 24px;
-      line-height: 36px;
-      color: #fff;
-    }
-    p.subtitle {
-      font-family: "Poppins";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 13px;
-      line-height: 22px;
-      color: #949ca9;
-    }
-  }
-  .login-data {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    label {
-      font-family: "Poppins";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 22px;
-      color: #fff;
-    }
-    input {
-      margin-top: 5px;
-      margin-bottom: 10px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      padding: 15px;
-      gap: 10px;
-      width: 460px;
-      height: 52px;
-      background: #202024;
-      border: 1px solid #202024;
-      border-radius: 6px;
-      flex: none;
+  height: 100vh;
+  padding: 0 50px;
+  color: $text-color;
 
-      align-self: stretch;
+  .anime-login-content {
+    max-width: 500px;
 
-      color: #949ca9;
+    .anime-intro {
+      text-align: left;
+      margin-bottom: 20px;
+
+      .anime-title {
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: $primary-color;
+        margin-bottom: 10px;
+      }
+
+      .anime-subtitle {
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 20px;
+        color: $text-color;
+        opacity: 0.9;
+      }
+
+      .anime-cta {
+        font-size: 16px;
+        font-weight: 500;
+        color: $secondary-color;
+      }
     }
-    input::placeholder {
-      color: #949ca9;
-    }
-  }
-  .login-button {
-    display: flex;
-    flex-direction: column;
-    padding: 0px;
-    button {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      padding: 14px 49px;
-      width: 460px;
-      height: 52px;
-      background: #2f93f6;
-      border-radius: 6px;
-      flex: none;
-      order: 0;
-      flex-grow: 0;
-      color: #fff;
-      font-family: "Poppins";
-      font-style: normal;
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 24px;
-      cursor: pointer;
-      &:hover {
-        background: #2f93f6;
-        opacity: 0.8;
+
+    .anime-login-form {
+      .textfield {
+        margin-bottom: 15px;
+
+        label {
+          display: block;
+          font-weight: 500;
+          margin-bottom: 5px;
+          color: $text-color;
+        }
+
+        input {
+          width: 100%;
+          padding: 12px;
+          border-radius: 8px;
+          border: 1px solid $secondary-color;
+          background: darken($bg-color, 5%);
+          color: $text-color;
+          font-size: 16px;
+
+          &::placeholder {
+            color: lighten($text-color, 20%);
+          }
+        }
+      }
+
+      .btn-login {
+        width: 100%;
+        padding: 12px;
+        background: $secondary-color;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background 0.3s;
+
+        &:hover {
+          background: $hover-color;
+        }
+      }
+
+      .register-cta {
+        margin-top: 15px;
+        font-size: 14px;
+        color: lighten($text-color, 10%);
+        text-align: center;
+
+        .register-link {
+          color: $primary-color;
+          text-decoration: none;
+          font-weight: 500;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
     }
   }
-  .register {
-    margin-top: 10px;
-    a {
-      font-family: "Poppins";
-      font-style: normal;
-      text-decoration: none;
-      cursor: pointer;
-      color: #fff;
-      font-size: 13px;
-      &:hover {
-        color: #2f93f6;
-      }
+
+  .anime-bg {
+    flex: 1;
+    text-align: right;
+
+    .anime-hero-image {
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 12px;
     }
   }
 }

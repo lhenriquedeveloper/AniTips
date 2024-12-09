@@ -8,7 +8,9 @@ import { UserContext } from "../../Contexts/user";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../Components/Footer";
 import { FiRefreshCw } from "react-icons/fi";
-import { debounce } from "lodash"; // Para otimizar o filtro de gêneros
+import { debounce } from "lodash";
+import AnimeCard from "../../Components/AnimeCard/index"
+import LoadingScreen from "../../Components/LoadingScreen";
 
 export default function Home() {
   const { animes, setAnimes } = useContext(AnimeContext);
@@ -29,37 +31,49 @@ export default function Home() {
     verifyLogin();
   }, [setUserLogged]);
 
-  // Carregar animes e aplicar filtro NSFW
+
   const loadAnimes = async (genreFilter = "") => {
     setLoading(true);
     try {
-      const fetchedAnimes = await Promise.all(
-        Array.from({ length: 12 }, (_, i) => i).map(async () => {
-          const { data } = await api.get("/random/anime");
-
-          const nsfwFilter = data.data.genres.some(
-            (genre) => genre.name === "Hentai"
-          );
-          if (data.data.explicit_genres.length === 0 && !nsfwFilter) {
-            // Filtro por gênero
-            if (
-              genreFilter &&
-              !data.data.genres.some((g) => g.name === genreFilter)
-            ) {
-              return null;
-            }
-            return data.data;
-          }
-          return null;
-        })
-      );
-      setAnimes(fetchedAnimes.filter(Boolean));
+      const validAnimes = []; // Array para armazenar animes válidos
+  
+      while (validAnimes.length < 12) {
+        // const { data } = await api.get("/random/anime");
+  
+       
+  
+        // Verifica o score
+        const score = data.data.score;
+        if (score <= 7.00) {
+          continue; // Ignora animes com score <= 7.00
+        }
+  
+        // Verifica se o gênero Hentai está presente
+        const hasHentai = data.data.genres.some((genre) => genre.name === "Hentai");
+        if (hasHentai) {
+          continue; 
+        }
+  
+  
+        if (
+          genreFilter &&
+          !data.data.genres.some((g) => g.name === genreFilter)
+        ) {
+          continue;
+        }
+  
+    
+        validAnimes.push(data.data);
+      }
+  
+      setAnimes(validAnimes); 
     } catch (error) {
       console.error("Error fetching animes:", error);
     } finally {
       setLoading(false);
     }
   };
+  
 
   // Função debounce para evitar chamadas excessivas ao API
   const debouncedLoadAnimes = debounce(loadAnimes, 500);
@@ -107,7 +121,10 @@ export default function Home() {
 
   return (
     <>
-      <div className="home-container">
+      {loading ? (
+        <LoadingScreen /> // Exibe o carregamento
+      ) : (
+        <div className="home-container">
         {/* Filtro de Gênero */}
         <div className="filter-container">
           <select
@@ -124,7 +141,6 @@ export default function Home() {
             <option value="Drama">Drama</option>
             <option value="Fantasia">Fantasia</option>
             <option value="Mistério">Mistério</option>
-            {/* Adicione outros gêneros conforme necessário */}
           </select>
         </div>
 
@@ -132,17 +148,7 @@ export default function Home() {
         <div className="anime-slider">
           <Slider {...slickConfig}>
             {animes.map((anime) => (
-              <div className="anime-card" key={anime.mal_id}>
-                <img
-                  src={anime.images.jpg.image_url}
-                  alt={anime.title}
-                  className="anime-image"
-                  onClick={() => navigate(`/detail/${anime.mal_id}`)}
-                />
-                <Link to={`/detail/${anime.mal_id}`} className="anime-title">
-                  {anime.title}
-                </Link>
-              </div>
+             <AnimeCard key={anime.mal_id} anime={anime}></AnimeCard>
             ))}
           </Slider>
         </div>
@@ -154,15 +160,11 @@ export default function Home() {
             onClick={handleRefresh}
             disabled={loading}
           >
-            {loading ? (
-              <div className="loading-spinner"></div>
-            ) : (
               <FiRefreshCw size={24} />
-            )}
           </button>
         </div>
       </div>
-      <Footer />
+      )}
     </>
   );
 }

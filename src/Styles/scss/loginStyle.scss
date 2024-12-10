@@ -7,19 +7,20 @@ $text-color: #e5e5e5;
 $hover-color: lighten($secondary-color, 10%);
 
 body {
-  background: $bg-color;
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
 }
 
 .anime-login-container {
+  background: $bg-color !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100vh;
+  max-height: 90vh;
   padding: 0 50px;
   color: $text-color;
+  overflow-y: hidden !important;
   
 
   .anime-login-content {

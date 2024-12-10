@@ -3,6 +3,7 @@ import { lazy, Suspense, useContext, useEffect } from "react"
 import { UserContext } from "../Contexts/user"
 import firebase from "../Services/firebaseconnection"
 import "../Styles/scss/renderingStyle.scss"
+import LoadingScreen from "../Components/LoadingScreen"
 
 
 
@@ -34,9 +35,7 @@ export default function RoutesFile() {
     return (
         <div>
             <Suspense fallback={
-                <div className="rendering-display">
-                    <h1 className="rendering-message">Loading...</h1>
-                </div>
+              <LoadingScreen/>
             }>
                 <Routes>
                     <Route exact path="/" element={<Login />} />

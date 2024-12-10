@@ -1,80 +1,84 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+body {
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  color: #f9fafb;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
 #my-animes {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  margin: 2rem auto;
 
   h1 {
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 600;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 45px;
-    margin-top: 15px;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #f1f5f9;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.4);
   }
+
   span.nothing {
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    font-style: italic;
-    font-weight: 500;
-    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.25rem;
+    gap: 0.5rem;
   }
 
   ul.animelist {
-    margin-top: 1rem;
+    list-style: none;
+    display: flex;
+    justify-content: center;
     padding: 0;
+
     li {
-      padding: 0;
-      list-style: none;
-      width: 600px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      margin-bottom: 15px;
-      div button {
-        border: none;
-        padding: 5px;
-        border-radius: 8px;
-        margin-right: 10px;
-        background-color: #222;
-        color: #fff;
-        cursor: pointer;
-        transition: all 0.7s;
-        &:hover {
-          color: #2f93f6;
+      align-items: center;
+      background: #334155;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      width: 50%;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      span {
+        font-size: 1.25rem;
+        font-weight: 500;
+      }
+
+      div {
+        display: flex;
+        gap: 0.5rem;
+
+        button {
+          border: none;
+          background: none;
+          color: #f9fafb;
+          cursor: pointer;
+          font-size: 1.5rem;
+          transition: color 0.3s;
+
+          &:hover {
+            color: #60a5fa;
+          }
+        }
+
+        .edit-btn:hover {
+          color: #22c55e;
+        }
+
+        .delete-btn:hover {
+          color: #ef4444;
         }
       }
-    }
-    span {
-      font-style: italic;
-      font-family: "Poppins";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 20px;
-      color: #fff;
-    }
-  }
-}
-
-@media (max-width: 600px) {
-  ul.animelist {
-    li {
-      width: 500px !important;
-    }
-  }
-}
-
-@media (max-width: 500px) {
-  ul.animelist {
-    li {
-      width: 470px !important;
     }
   }
 }

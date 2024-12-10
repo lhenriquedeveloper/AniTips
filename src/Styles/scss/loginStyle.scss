@@ -11,7 +11,6 @@ body {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
-  overflow-y: hidden;
 }
 
 .anime-login-container {
@@ -21,6 +20,7 @@ body {
   height: 100vh;
   padding: 0 50px;
   color: $text-color;
+  
 
   .anime-login-content {
     max-width: 500px;

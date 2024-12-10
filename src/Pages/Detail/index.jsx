@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import api from "../../Services/api";
 import firebase from "../../Services/firebaseconnection";
 import "../../Styles/scss/animeDetailStyle.scss";
-import { ClipLoader } from "react-spinners";
+import LoadingScreen from "../../Components/LoadingScreen";
 
 
 export default function Detail() {
@@ -36,9 +36,9 @@ export default function Detail() {
     //Rendering anime verification
     if (loading) {
         return (
-            <div className="anime-loading">
-                <ClipLoader color="#fff"></ClipLoader>
-            </div>
+           <>
+           <LoadingScreen/>
+           </>
         );
     }
 

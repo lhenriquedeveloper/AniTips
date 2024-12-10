@@ -9,7 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../Components/Footer";
 import { FiRefreshCw } from "react-icons/fi";
 import { debounce } from "lodash";
-import AnimeCard from "../../Components/AnimeCard/index"
+import AnimeCard from "../../Components/AnimeCard/index";
 import LoadingScreen from "../../Components/LoadingScreen";
 
 export default function Home() {
@@ -17,8 +17,9 @@ export default function Home() {
   const { setUserLogged } = useContext(UserContext);
   const [screenSize, setScreenSize] = useState(window.innerWidth);
   const [slickConfig, setSlickConfig] = useState({});
-  const [filterGenre, setFilterGenre] = useState(""); // Filtro de gênero
+  const [filterGenre, setFilterGenre] = useState("");
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
   let navigate = useNavigate();
 
   // Verificar Login
@@ -31,49 +32,19 @@ export default function Home() {
     verifyLogin();
   }, [setUserLogged]);
 
-
-  const loadAnimes = async (genreFilter = "") => {
+  const loadAnimes = async (genreFilter = "", pageNumber = 1) => {
     setLoading(true);
     try {
-      const validAnimes = []; // Array para armazenar animes válidos
-  
-      while (validAnimes.length < 12) {
-        // const { data } = await api.get("/random/anime");
-  
-       
-  
-        // Verifica o score
-        const score = data.data.score;
-        if (score <= 7.00) {
-          continue; // Ignora animes com score <= 7.00
-        }
-  
-        // Verifica se o gênero Hentai está presente
-        const hasHentai = data.data.genres.some((genre) => genre.name === "Hentai");
-        if (hasHentai) {
-          continue; 
-        }
-  
-  
-        if (
-          genreFilter &&
-          !data.data.genres.some((g) => g.name === genreFilter)
-        ) {
-          continue;
-        }
-  
-    
-        validAnimes.push(data.data);
-      }
-  
-      setAnimes(validAnimes); 
+      const { data } = await api.get(
+        `https://api.jikan.moe/v4/top/anime?filter=bypopularity&sfw&page=${pageNumber}&type=${genreFilter}`
+      );
+      setAnimes(data.data);
     } catch (error) {
       console.error("Error fetching animes:", error);
     } finally {
       setLoading(false);
     }
   };
-  
 
   // Função debounce para evitar chamadas excessivas ao API
   const debouncedLoadAnimes = debounce(loadAnimes, 500);
@@ -115,8 +86,11 @@ export default function Home() {
 
   // Função para atualizar os animes
   const handleRefresh = () => {
-    setLoading(true);
-    loadAnimes(filterGenre);
+    setPage((prevPage) => {
+      const nextPage = prevPage + 1;
+      loadAnimes(filterGenre, nextPage);
+      return nextPage;
+    });
   };
 
   return (
@@ -125,45 +99,49 @@ export default function Home() {
         <LoadingScreen /> // Exibe o carregamento
       ) : (
         <div className="home-container">
-        {/* Filtro de Gênero */}
-        <div className="filter-container">
-          <select
-            className="genre-filter"
-            value={filterGenre}
-            onChange={(e) => {
-              setFilterGenre(e.target.value);
-              debouncedLoadAnimes(e.target.value); // Chamada otimizada
-            }}
-          >
-            <option value="">Filtrar por Gênero</option>
-            <option value="Ação">Ação</option>
-            <option value="Comédia">Comédia</option>
-            <option value="Drama">Drama</option>
-            <option value="Fantasia">Fantasia</option>
-            <option value="Mistério">Mistério</option>
-          </select>
-        </div>
+          {/* Filtro de Gênero */}
+          <div className="filter-container">
+            <label htmlFor="genre-filter" className="filter-label">
+              <span className="filter-title">Choose an Anime Type</span>
+              <select
+                id="genre-filter"
+                className="genre-filter"
+                value={filterGenre}
+                onChange={(e) => {
+                  setFilterGenre(e.target.value);
+                  debouncedLoadAnimes(e.target.value); // Chamada otimizada
+                }}
+              >
+                <option value="">Filter by Type</option>
+                <option value="tv">Anime for TV</option>
+                <option value="movie">Movies</option>
+                <option value="ova">OVA</option>
+                <option value="special">Specials</option>
+                <option value="music">Musicals</option>
+              </select>
+            </label>
+          </div>
 
-        {/* Slider */}
-        <div className="anime-slider">
-          <Slider {...slickConfig}>
-            {animes.map((anime) => (
-             <AnimeCard key={anime.mal_id} anime={anime}></AnimeCard>
-            ))}
-          </Slider>
-        </div>
+          {/* Slider */}
+          <div className="anime-slider">
+            <Slider {...slickConfig}>
+              {animes.map((anime) => (
+                <AnimeCard key={anime.mal_id} anime={anime}></AnimeCard>
+              ))}
+            </Slider>
+          </div>
 
-        {/* Botão de atualização */}
-        <div className="refresh-container">
-          <button
-            className="refresh-button"
-            onClick={handleRefresh}
-            disabled={loading}
-          >
+          {/* Botão de atualização */}
+          <div className="refresh-container">
+            <button
+              className="refresh-button"
+              onClick={handleRefresh}
+              disabled={loading}
+            >
               <FiRefreshCw size={24} />
-          </button>
+            </button>
+          </div>
         </div>
-      </div>
       )}
     </>
   );

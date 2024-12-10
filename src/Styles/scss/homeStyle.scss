@@ -8,8 +8,8 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #1a1a1a;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
   color: #fff;
 }
 
@@ -19,19 +19,35 @@ body {
   align-items: center;
   justify-content: flex-start;
   padding: 2rem 1rem;
-  min-height: 100vh;
-  background-color: #111;
+  max-height: 80vh;
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
 }
-
 
 .filter-container {
   margin-bottom: 2rem;
   width: 100%;
   max-width: 600px;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 0 2rem;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  color: #fff;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+
+  .filter-title {
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+  }
 }
 
 .genre-filter {
@@ -39,22 +55,29 @@ body {
   padding: 12px 18px;
   font-size: 1.1rem;
   border-radius: 8px;
-  background-color: #2c2c2c; 
-  border: none;
+  background-color: #2c2c2c;
+  border: 2px solid #444;
   outline: none;
+  color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 
-  &:hover, &:focus {
+  &:hover {
     background-color: #444;
+    border-color: #2f93f6;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  &:focus {
+    border-color: #2f93f6;
+    box-shadow: 0 0 10px #2f93f6;
   }
 
   option {
     background-color: #333;
+    color: #fff;
   }
 }
-
 
 .anime-slider {
   width: 100%;
@@ -62,61 +85,14 @@ body {
   margin: 0 auto 2rem;
 }
 
-.anime-card {
-  position: relative;
-  cursor: pointer;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  background-color: #333;
-  margin-bottom: 1.5rem;
-  transition: transform 0.3s ease-in-out;
-
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-  }
-}
-
-.anime-image {
-  width: 100%;
-  height: auto;
-  transition: transform 0.3s ease-in-out;
-  
-  &:hover {
-    transform: scale(1.1);
-  }
-}
-
-.anime-title {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 15px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-top-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  transition: all 0.3s ease;
-
-  &:hover {
-    color: #f59e0b;
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-}
-
-
 .refresh-container {
-  margin-top: 2rem;
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
 .refresh-button {
-  background-color: #3b82f6;
+  background-color: #1b1b1b;
   border-radius: 50%;
   padding: 16px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -125,9 +101,11 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  color: #fff;
+  cursor: pointer;
 
   &:hover {
-    background-color: #60a5fa;
+    background-color: #2b2a2a;
     transform: scale(1.1);
   }
 
@@ -136,19 +114,4 @@ body {
     cursor: not-allowed;
     transform: scale(1);
   }
-}
-
-
-.loading-spinner {
-  border: 4px solid #f3f3f3; /* Light grey */
-  border-top: 4px solid #3498db; /* Blue */
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }
